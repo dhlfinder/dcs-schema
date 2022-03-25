@@ -34,9 +34,6 @@ pipeline {
     }
 
     post {
-        always {
-            junit 'target/surefire-reports/**/*.xml'
-        }
         failure {
             emailext body: "[jenkins.dhl.com] Build ${env.JOB_NAME} (${env.BUILD_NUMBER}) failed!",
                     mimeType: 'text/html',
