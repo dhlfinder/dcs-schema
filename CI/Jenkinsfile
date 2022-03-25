@@ -1,0 +1,87 @@
+pipeline {
+    agent {
+        label 'openshift-prg'
+    }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                mvn("clean package")
+            }
+        }
+
+
+        stage('Push JAR to Artifactory') {
+            when {
+                anyOf {
+                    branch 'master';
+                    branch 'release/*';
+                    buildingTag()
+                }
+            }
+            steps {
+                artifactoryPush()
+            }
+        }
+
+    
+    }
+
+    post {
+        always {
+            junit 'target/surefire-reports/**/*.xml'
+        }
+        failure {
+            emailext body: "[jenkins.dhl.com] Build ${env.JOB_NAME} (${env.BUILD_NUMBER}) failed!",
+                    mimeType: 'text/html',
+                    subject: "[jenkins.dhl.com] Build ${env.JOB_NAME} (${env.BUILD_NUMBER}) failed!\\nSee ${env.BUILD_URL}.",
+                    to: emailextrecipients([
+                            [$class: 'DevelopersRecipientProvider'], // developers who commited code since the last build
+                            [$class: 'CulpritsRecipientProvider'],   // developers who commited code since the last successful build
+                            [$class: 'RequesterRecipientProvider']   // user who triggered the build (if triggered manually)
+                    ]),
+                    from: 'network.performance@dhl.com'
+
+        }
+    }
+}
+
+
+def mvn(args) {
+    def config = [javaPath: getDefaultJdk(), mavenPath: getDefaultMaven()]
+    def buildInfo
+    def server = Artifactory.server('Artifactory prod')
+    def rtMaven = Artifactory.newMavenBuild()
+    rtMaven.resolver server: server, releaseRepo: 'maven-release', snapshotRepo: 'maven-snapshot'
+    rtMaven.deployer server: server, releaseRepo: 'maven-dhl-release-local', snapshotRepo: 'maven-dhl-snapshot-local'
+    rtMaven.tool = "${config.mavenPath}".toString()
+    rtMaven.deployer.deployArtifacts = false
+    withEnv(["JAVA_HOME=${config.javaPath}"]) {
+        buildInfo = rtMaven.run pom: 'pom.xml', goals: "${args}".toString()
+    }
+}
+
+def getDefaultJdk() {
+    return tool('JDK11')
+}
+
+def static getDefaultMaven() {
+    return 'Maven 3.8.1'
+}
+
+
+def artifactoryPush() {
+    def filePath = sh(script: "ls target/*.jar", returnStdout: true).trim()
+    def target = filePath.replace("target/", "consolidation-service/schema/")
+
+    withCredentials([usernamePassword(credentialsId: 'dhlfinder-artifactory', passwordVariable: 'pass', usernameVariable: 'user')]) {
+        sh """curl --fail -v -k --user "${user}:${pass}" --data-binary @${filePath} -X PUT "https://artifactory.dhl.com:443/artifactory/dhlfinder-generic-release/${target}" """
+    }
+}
+
