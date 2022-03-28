@@ -563,7 +563,7 @@
                     <xs:documentation>The unique key in the delivery system</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
-                    <xs:restriction base="xs:token">
+                    <xs:restriction base="xs:ID">
                         <xs:maxLength value="30" />
                         <xs:minLength value="1" />
                     </xs:restriction>
