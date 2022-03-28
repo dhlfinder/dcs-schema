@@ -1013,5 +1013,13 @@
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
+		<xs:key name="PKSystemID">
+            <xs:selector xpath="./header/systemID"/>
+            <xs:field xpath="."/>
+        </xs:key>
+        <xs:keyref name="FKLocSystemID" refer="PKSystemID">
+            <xs:selector xpath="./data/parcelLocation/identifyingKeys/systemID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
     </xs:element>
 </xs:schema>
