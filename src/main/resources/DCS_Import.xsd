@@ -558,7 +558,7 @@
                     <xs:documentation>The unique key in the delivery system</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
-                    <xs:restriction base="xs:token">
+                    <xs:restriction base="xs:ID">
                         <xs:maxLength value="30" />
                         <xs:minLength value="1" />
                     </xs:restriction>
@@ -1013,5 +1013,13 @@
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
+		<xs:key name="PKSystemID">
+            <xs:selector xpath="./header/systemID"/>
+            <xs:field xpath="."/>
+        </xs:key>
+        <xs:keyref name="FKLocSystemID" refer="PKSystemID">
+            <xs:selector xpath="./data/parcelLocation/identifyingKeys/systemID"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
     </xs:element>
 </xs:schema>
