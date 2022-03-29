@@ -1,9 +1,9 @@
 # eCS DHL Finder Data Consolidation Service - Schema
 
-This repository contains the import and export schema that is used by the DCS.
+This repository contains the import and export scheme used by the eCS DHL Finder DCS.
 
-Use the import schema to create and validate a location file that will be imported into the DCS.
-The export schema describes the consolidated file created by DCS export.
+The import schema is used to create and validate a location data file to be imported into the DCS.
+The export schema describes the consolidated location data file that will be created during the DCS export.
 
 ## Contact
 
