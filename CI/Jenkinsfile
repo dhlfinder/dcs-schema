@@ -21,21 +21,6 @@ pipeline {
                 mvn("install")
             }
         }
-
-//        stage('Push JAR to Artifactory') {
-//            when {
-//                anyOf {
-//                    branch 'master';
-//                    branch 'release/*';
-//                    buildingTag()
-//                }
-//            }
-//            steps {
-//                artifactoryPush()
-//            }
-//        }
-
-    
     }
 
     post {
