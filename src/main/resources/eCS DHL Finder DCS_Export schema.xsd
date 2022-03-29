@@ -301,7 +301,7 @@
             </xs:enumeration>
             <xs:enumeration value="parcelpickup">
                 <xs:annotation>
-                    <xs:documentation>The location can be used for direct addressing as primary delivery.  This service is only to be used for Direct Addressing, no other LastMile Service.</xs:documentation>
+                    <xs:documentation>The location can be used for direct addressing as primary delivery. This service is only to be used for Direct Addressing, no other LastMile Service.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parking">
@@ -521,7 +521,7 @@
             <xs:element name="category" type="categoryType" />
             <xs:element name="path" type="patternPicture">
                 <xs:annotation>
-                    <xs:documentation>The path for the picture files. There are two possibilities: 1.) Provide a complete url beginning with http(s)://: No physical picture is necessary. The Parcelshopfinder will load the file from the given url; 2.) Provide only a filename without any path: The file has to be provided to the subdirectory "psf_upload/files" of your account on the sftp server. The importer will copy the file to the webinterface of the Parcelshopfinder</xs:documentation>
+                    <xs:documentation>The path for the picture files. There are two possibilities: 1.) Provide a complete url beginning with http(s)://: No physical picture is necessary. The DHL Finder Frontend will load the file from the given url; 2.) Provide only a filename without any path: The file has to be provided to the subdirectory "psf_upload/files" of your account on the sftp server. The importer will copy the file to the webinterface of the Parcelshopfinder</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
@@ -644,7 +644,7 @@
                         - packstation_utilization_fri -> Utilization value on fridays (content type: int)
                         - packstation_utilization_sat -> Utilization value on saturdays (content type: int)
                         - packstation_utilization_sun -> Utilization value on sundays (content type: int)
-                        - lean_locker -> Whether the locker is a lean locker (content type: int [0 or 1])
+                        - lean_locker -> Whether the locker is a lean locker and has to be controlled by the customer with a smartphone (content type: int [0 or 1])
 
                         Utilization values are:
                         - 1 = very low
@@ -745,7 +745,7 @@
             </xs:element>
             <xs:element name="fileName" type="fileName" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>The name of the xml file (e. g. : 20150321_de_psfexport.xml</xs:documentation>
+                    <xs:documentation>The name of the xml file. Naming convention: SystemID_Date_psfimport.xml (e.g.: 8001_20220329_psfimport.xml)</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
