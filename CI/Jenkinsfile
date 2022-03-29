@@ -63,7 +63,7 @@ def mvn(args) {
     rtMaven.resolver server: server, releaseRepo: 'maven-release', snapshotRepo: 'maven-snapshot'
     rtMaven.deployer server: server, releaseRepo: 'maven-dhl-release-local', snapshotRepo: 'maven-dhl-snapshot-local'
     rtMaven.tool = "${config.mavenPath}".toString()
-    rtMaven.deployer.deployArtifacts = false
+    rtMaven.deployer.deployArtifacts = true
     withEnv(["JAVA_HOME=${config.javaPath}"]) {
         buildInfo = rtMaven.run pom: 'pom.xml', goals: "${args}".toString()
     }
