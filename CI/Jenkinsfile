@@ -16,19 +16,24 @@ pipeline {
             }
         }
 
-
-        stage('Push JAR to Artifactory') {
-            when {
-                anyOf {
-                    branch 'master';
-                    branch 'release/*';
-                    buildingTag()
-                }
-            }
+        stage('Deploy') {
             steps {
-                artifactoryPush()
+                mvn("deploy")
             }
         }
+
+//        stage('Push JAR to Artifactory') {
+//            when {
+//                anyOf {
+//                    branch 'master';
+//                    branch 'release/*';
+//                    buildingTag()
+//                }
+//            }
+//            steps {
+//                artifactoryPush()
+//            }
+//        }
 
     
     }
