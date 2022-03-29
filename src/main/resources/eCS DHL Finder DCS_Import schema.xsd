@@ -740,7 +740,7 @@
             </xs:element>
             <xs:element name="fileName" type="fileName" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>The name of the xml file. Naming convention: SystemID_Date_psfimport.xml (e.g.: 8001_20150321_psfimport.xml</xs:documentation>
+                    <xs:documentation>The name of the xml file. Naming convention: SystemID_Date_psfimport.xml (e.g.: 8001_20220329_psfimport.xml)</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
