@@ -334,6 +334,16 @@
                     <xs:documentation>The location can be selected as an alternative drop-off location by a customer who wants to re-route a doorstep parcel.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="bulky">
+                <xs:annotation>
+                    <xs:documentation>Not implemented yet</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="mobileParcelStamp">
+                <xs:annotation>
+                    <xs:documentation>Not implemented yet</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="weekday">
