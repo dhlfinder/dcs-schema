@@ -573,7 +573,7 @@
                     <xs:documentation>The unique key in the delivery system</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
-                    <xs:restriction base="xs:ID">
+                    <xs:restriction base="xs:token">
                         <xs:maxLength value="30" />
                         <xs:minLength value="1" />
                     </xs:restriction>
@@ -1031,5 +1031,9 @@
             <xs:selector xpath="./data/parcelLocation/identifyingKeys/systemID"/>
             <xs:field xpath="."/>
         </xs:keyref>
+        <xs:unique name="uniquePrimaryKeyDeliverySystem">
+            <xs:selector xpath="./data/parcelLocation/identifyingKeys/primaryKeyDeliverySystem"/>
+            <xs:field xpath="."/>
+        </xs:unique>
     </xs:element>
 </xs:schema>
