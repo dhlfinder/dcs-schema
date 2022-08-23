@@ -339,9 +339,9 @@
                     <xs:documentation>Not implemented yet</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="mobileParcelStamp">
+            <xs:enumeration value="acceptUnlabelledParcel">
                 <xs:annotation>
-                    <xs:documentation>Not implemented yet</xs:documentation>
+                    <xs:documentation>The location accepts unlabelled parcels. It prints the required label for the client.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
