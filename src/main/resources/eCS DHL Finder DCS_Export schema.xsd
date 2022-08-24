@@ -341,7 +341,7 @@
             </xs:enumeration>
             <xs:enumeration value="acceptUnlabelledParcel">
                 <xs:annotation>
-                    <xs:documentation>The location accepts unlabelled parcels. It prints the required label for the client.</xs:documentation>
+                    <xs:documentation>The location accepts unlabelled parcels. Printing of required label for clients is supported.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
