@@ -6,8 +6,10 @@ pipeline {
     stages {
 
         stage('Set Git Credentials'){
-            git credentialsId: 'dhl-finder-ci-key', url: 'ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git'
-            git credentialsId: 'dhlfinder-github-sync-token', url: 'https://github.com/ecs-dhlfinder/dcs-schema.git'
+            steps {
+                git credentialsId: 'dhl-finder-ci-key', url: 'ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git'
+                git credentialsId: 'dhlfinder-github-sync-token', url: 'https://github.com/ecs-dhlfinder/dcs-schema.git'
+            }
         }
 
         stage('Sync') {
