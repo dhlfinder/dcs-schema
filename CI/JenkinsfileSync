@@ -21,7 +21,7 @@ pipeline {
                     dir("dcs-schema") {
                         //add a remote repository
                         withCredentials([[$class          : 'string',
-                                          credentialsId   : dhlfinder-github-sync-token,
+                                          credentialsId   : 'dhlfinder-github-sync-token',
                                           variable: 'GITHUB_TOKEN']]) {
                             sh "git remote add --mirror=fetch second https://${GITHUB_TOKEN}@github.com/ecs-dhlfinder/dcs-schema.git"
 
