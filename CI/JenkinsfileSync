@@ -25,19 +25,19 @@ pipeline {
             steps {
                 sshagent (credentials: ['dhl-finder-ci-key']) {
                     sh 'git clone --mirror ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git dcs-schema'
-                }
-                dir("dcs-schema") {
-                    //add a remote repository
-                    sh 'git remote add --mirror=fetch second https://github.com/ecs-dhlfinder/dcs-schema.git'
-                    // update the local copy from the first repository
-                    sh 'git fetch origin --tags'
+                    dir("dcs-schema") {
+                        //add a remote repository
+                        sh 'git remote add --mirror=fetch second https://github.com/ecs-dhlfinder/dcs-schema.git'
+                        // update the local copy from the first repository
+                        sh 'git fetch origin --tags'
 
-                    // update the local copy with the second repository
-                    sh 'git fetch second --tags'
+                        // update the local copy with the second repository
+                        sh 'git fetch second --tags'
 
-                    // sync back the second repository
-                    sh 'git push second --all'
-                    sh 'git push second --tags'
+                        // sync back the second repository
+                        sh 'git push second --all'
+                        sh 'git push second --tags'
+                    }
                 }
             }
         }
