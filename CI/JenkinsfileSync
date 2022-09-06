@@ -23,7 +23,9 @@ pipeline {
 
         stage('Sync') {
             steps {
-                sh 'git clone --bare ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git dcs-schema'
+                sshagent (credentials: ['dhl-finder-ci-key']) {
+                    sh 'git clone --mirror ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git dcs-schema'
+                }
                 dir("dcs-schema") {
                     //add a remote repository
                     sh 'git remote add --mirror=fetch second https://github.com/ecs-dhlfinder/dcs-schema.git'
