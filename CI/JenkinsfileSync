@@ -5,6 +5,15 @@ pipeline {
 
     stages {
 
+        stage('Set Git Config') {
+            steps {
+                sh 'git config --global user.email "network.performance@dhl.com"'
+                sh 'git config --global user.name "ci-bot"'
+                sh 'git config --global credential.helper cache'
+                sh "git config --global credential.helper 'cache --timeout=3600'"
+            }
+        }
+
         stage('Set Git Credentials'){
             steps {
                 git credentialsId: 'dhl-finder-ci-key', url: 'ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git'
