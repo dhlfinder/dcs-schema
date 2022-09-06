@@ -20,9 +20,9 @@ pipeline {
                     sh 'git clone --mirror ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git dcs-schema'
                     dir("dcs-schema") {
                         //add a remote repository
-                        withCredentials([[$class          : 'string',
+                        withCredentials([string(
                                           credentialsId   : 'dhlfinder-github-sync-token',
-                                          variable: 'GITHUB_TOKEN']]) {
+                                          variable: 'GITHUB_TOKEN')]) {
                             sh "git remote add --mirror=fetch second https://${GITHUB_TOKEN}@github.com/ecs-dhlfinder/dcs-schema.git"
 
                         }
