@@ -7,7 +7,7 @@ pipeline {
         stage('Sync') {
             steps {
                 withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                                  credentialsId   : dhlfinder-artifactory,
+                                  credentialsId   : 'dhlfinder-artifactory',
                                   usernameVariable: 'GIT_USER',
                                   passwordVariable: 'GIT_PASSWORD']]) {
 
@@ -16,7 +16,7 @@ pipeline {
                 }
                 sh 'cd dcs-schema.git'
                 withCredentials([[$class          : 'string',
-                                  credentialsId   : dhlfinder-github-sync-token,
+                                  credentialsId   : 'dhlfinder-github-sync-token',
                                   variable: 'GITHUB_TOKEN']]) {
                     sh 'git remote add --mirror=fetch secondary https://${GITHUB_TOKEN}@github.com/ecs-dhlfinder/dcs-schema.git'
                     sh 'git fetch origin'
