@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.1] - 2022-04-01
 ### Changed
-- Replaced preview service type "mobileParcelStamp" with "acceptUnlabelledParcel" and added it as a real service
+- Fix unique validation of primaryKeyDeliverySystem to allow more diverse tokens again
 
 ## [1.0.0] - 2022-03-30
 Initial release of standalone schema bundle.
