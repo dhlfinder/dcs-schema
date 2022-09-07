@@ -1,0 +1,22 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.1.0] - 2022-08-24
+### Changed
+- Replaced preview service type "mobileParcelStamp" with "acceptUnlabelledParcel" and added it as a real service
+
+## [1.0.1] - 2022-04-01
+### Changed
+- Replaced preview service type "mobileParcelStamp" with "acceptUnlabelledParcel" and added it as a real service
+
+## [1.0.0] - 2022-03-30
+Initial release of standalone schema bundle.
+
+### Changed
+(in comparison to embedded version)  
+- Enforcing rule: SystemID must be the same in all fields of a document
+- Enforcing rule: primaryKeyDeliverySystem must be unique across the document
+- Added upcoming services "bulky" and "mobileParcelStamp"
