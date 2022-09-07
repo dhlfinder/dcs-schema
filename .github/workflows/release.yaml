@@ -26,7 +26,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: version
-        run: echo "::set-output name=version::$(mvn -v | head -1 | cut -d ' ' -f 3)"
+        run: echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
         id: version
 
       - name: Build with Maven
