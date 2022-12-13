@@ -333,7 +333,7 @@
     </xs:simpleType>
     <xs:simpleType name="systemID">
         <xs:annotation>
-            <xs:documentation>DHL Finder ID of the delivery system</xs:documentation>
+            <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:token">
             <xs:pattern value="[a-zA-Z0-9]{1,4}" />
@@ -453,7 +453,7 @@
             </xs:element>
             <xs:element name="systemID" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>ID of the delivery system; contact the administrator of the DHL Finder for the ID</xs:documentation>
+                    <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="systemID">
@@ -570,7 +570,7 @@
         <xs:sequence>
             <xs:element name="systemID" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>ID of the delivery system; contact the administrator of the DHL Finder for the ID</xs:documentation>
+                    <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="systemID">
