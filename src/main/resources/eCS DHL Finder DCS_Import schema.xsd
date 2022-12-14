@@ -576,7 +576,7 @@
             </xs:element>
             <xs:element name="primaryKeyZipRegion" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Primary key within a zip region. Character for format string: b</xs:documentation>
+                    <xs:documentation>Primary key within a zip region.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -934,7 +934,6 @@
                                                 <xs:documentation>
                                                     The name of the shop, that is displayed on the DHL Finder Frontend; examples: Toto Lotto, Lidl, John´s barbershop.
                                                     In the web interface the name will be shortened to 20 characters.
-                                                    Character for format string: a
                                                 </xs:documentation>
                                             </xs:annotation>
                                             <xs:simpleType>
