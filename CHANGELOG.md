@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2022-12-16
+### Changed
+- The following fields or values have been deprecated for import, made optional and will be removed in a future update:
+  - shopTypes: relaisCollis, kariboo, paketBox, pointOfSale, parcelStation
+  - service: NPS, EPS, PINService
+  - timeInfoType: closuretime1, closuretime2, closuretime3, closuretime4
+  - schemaVersion
+  - fileDate
+  - fileName
+  - format1
+  - format2
+  - partnerType
+  - welcomeTexts
+  - files
+- The deprecated fields and values will no longer be exported.
+- Updated the description for systemID to be more helpful
+- The otherInfoTypes for *packstation_utilization* (including the daily values) have been renamed to just *utilization* to indicate they can be used for any location type
+
+
 ## [1.1.0] - 2022-08-24
 ### Changed
 - Replaced preview service type "mobileParcelStamp" with "acceptUnlabelledParcel" and added it as a real service

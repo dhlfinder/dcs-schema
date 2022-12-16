@@ -146,7 +146,7 @@
             </xs:enumeration>
             <xs:enumeration value="relaisColis">
                 <xs:annotation>
-                    <xs:documentation>Relais Colis</xs:documentation>
+                    <xs:documentation>Relais Colis - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="packStation">
@@ -156,7 +156,7 @@
             </xs:enumeration>
             <xs:enumeration value="kariboo">
                 <xs:annotation>
-                    <xs:documentation>Kariboo</xs:documentation>
+                    <xs:documentation>Kariboo - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="paketShop">
@@ -171,12 +171,12 @@
             </xs:enumeration>
             <xs:enumeration value="paketBox">
                 <xs:annotation>
-                    <xs:documentation>Paketbox</xs:documentation>
+                    <xs:documentation>Paketbox - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="pointOfSale">
                 <xs:annotation>
-                    <xs:documentation>Point of Sale</xs:documentation>
+                    <xs:documentation>Point of Sale - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="postBank">
@@ -186,7 +186,7 @@
             </xs:enumeration>
             <xs:enumeration value="parcelStation">
                 <xs:annotation>
-                    <xs:documentation>Parcelstation</xs:documentation>
+                    <xs:documentation>Parcelstation - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -266,12 +266,12 @@
             </xs:enumeration>
             <xs:enumeration value="NPS">
                 <xs:annotation>
-                    <xs:documentation>The location sells regular DHL Parcel labels (excluding DHL Express).</xs:documentation>
+                    <xs:documentation>Has been decommissioned. Replaced by "franking". Please change service name to "franking" in import, if used. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="EPS">
                 <xs:annotation>
-                    <xs:documentation>The location sells Express (EXP) parcels.</xs:documentation>
+                    <xs:documentation>The location sells Express (EXP) parcels. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="directDeliveryByDHLExpress">
@@ -321,7 +321,7 @@
             </xs:enumeration>
             <xs:enumeration value="PINService">
                 <xs:annotation>
-                    <xs:documentation>A PIN is required from the customer in order to pickup a parcel.</xs:documentation>
+                    <xs:documentation>A PIN is required from the customer in order to pickup a parcel. - DEPRECATED, will be removed in a future version.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parcelcollection">
@@ -391,7 +391,7 @@
     </xs:simpleType>
     <xs:simpleType name="systemID">
         <xs:annotation>
-            <xs:documentation>ID of the delivery system; the value is automatically overwritten by DHL Finder</xs:documentation>
+            <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:token">
             <xs:pattern value="[a-zA-Z0-9]{1,4}" />
@@ -409,22 +409,22 @@
             </xs:enumeration>
             <xs:enumeration value="closuretime1">
                 <xs:annotation>
-                    <xs:documentation>Dispatch deadline for letter mail. If letters are dropped off before this deadline, the processing of the letter will start the same day.</xs:documentation>
+                    <xs:documentation>Dispatch deadline for letter mail. If letters are dropped off before this deadline, the processing of the letter will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="closuretime2">
                 <xs:annotation>
-                    <xs:documentation>Dispatch deadline for DHL parcels. If parcels are dropped off before this deadline, the processing of the parcel will start the same day.</xs:documentation>
+                    <xs:documentation>Dispatch deadline for DHL parcels. If parcels are dropped off before this deadline, the processing of the parcel will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="closuretime3">
                 <xs:annotation>
-                    <xs:documentation>Dispatch deadline for DHL Express national. If parcels are dropped off before this deadline, the processing of the parcel will start the same day.</xs:documentation>
+                    <xs:documentation>Dispatch deadline for DHL Express national. If parcels are dropped off before this deadline, the processing of the parcel will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="closuretime4">
                 <xs:annotation>
-                    <xs:documentation>Dispatch deadline for DHL Express international. If parcels are dropped off before this deadline, the processing of the parcel will start the same day.</xs:documentation>
+                    <xs:documentation>Dispatch deadline for DHL Express international. If parcels are dropped off before this deadline, the processing of the parcel will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -576,7 +576,7 @@
             </xs:element>
             <xs:element name="primaryKeyZipRegion" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Primary key within a zip region. Character for format string: b</xs:documentation>
+                    <xs:documentation>Primary key within a zip region.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -587,7 +587,7 @@
             </xs:element>
             <xs:element name="systemID" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>ID of the delivery system; contact the administrator of the DHL Finder for the ID</xs:documentation>
+                    <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="systemID">
@@ -641,14 +641,14 @@
                 <xs:annotation>
                     <xs:documentation>
                         The type of the otherInfo entry. Supported values are:
-                         - packstation_utilization -> Average utilization value of the whole week (content type: int)
-                         - packstation_utilization_mon -> Utilization value on mondays (content type: int)
-                         - packstation_utilization_tue -> Utilization value on tuesdays (content type: int)
-                         - packstation_utilization_wed -> Utilization value on wednesdays (content type: int)
-                         - packstation_utilization_thu -> Utilization value on thursdays (content type: int)
-                         - packstation_utilization_fri -> Utilization value on fridays (content type: int)
-                         - packstation_utilization_sat -> Utilization value on saturdays (content type: int)
-                         - packstation_utilization_sun -> Utilization value on sundays (content type: int)
+                         - utilization -> Average utilization value of the whole week (content type: int)
+                         - utilization_mon -> Utilization value on mondays (content type: int)
+                         - utilization_tue -> Utilization value on tuesdays (content type: int)
+                         - utilization_wed -> Utilization value on wednesdays (content type: int)
+                         - utilization_thu -> Utilization value on thursdays (content type: int)
+                         - utilization_fri -> Utilization value on fridays (content type: int)
+                         - utilization_sat -> Utilization value on saturdays (content type: int)
+                         - utilization_sun -> Utilization value on sundays (content type: int)
                          - lean_locker -> Whether the locker is a lean locker and has to be controlled by the customer with a smartphone (content type: int [0 or 1])
 
                         Utilization values are:
@@ -658,7 +658,7 @@
 
                         Example:
                         &lt;otherInfo&gt;
-                            &lt;type&gt;packstation_utilization_wed&lt;/type&gt;
+                            &lt;type&gt;utilization_wed&lt;/type&gt;
                             &lt;content&gt;3&lt;/content&gt;
                         &lt;/otherInfo&gt;
 
@@ -720,7 +720,7 @@
         <xs:sequence>
             <xs:element name="systemID" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>ID of the delivery system; contact the administrator of the DHL Finder for the ID</xs:documentation>
+                    <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="systemID">
@@ -738,31 +738,31 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="schemaVersion" type="validSchemaVersions" minOccurs="1" maxOccurs="1">
+            <xs:element name="schemaVersion" type="validSchemaVersions" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Version number of the underlying schemaFile. Use the number of the simpleType "schemaVersion" here.</xs:documentation>
+                    <xs:documentation>Version number of the underlying schemaFile. Use the number of the simpleType "schemaVersion" here. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="fileDate" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+            <xs:element name="fileDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Creation date of the file</xs:documentation>
+                    <xs:documentation>Creation date of the file - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="fileName" type="fileName" minOccurs="1" maxOccurs="1">
+            <xs:element name="fileName" type="fileName" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>The name of the xml file. Naming convention: SystemID_Date_psfimport.xml (e.g.: 8001_20220329_psfimport.xml)</xs:documentation>
+                    <xs:documentation>The name of the xml file. Naming convention: SystemID_Date_psfimport.xml (e.g.: 8001_20220329_psfimport.xml) - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="address">
         <xs:annotation>
-            <xs:documentation>The address of the parcelLocation. For displaying the address, set the field format1. For label print use the field format2.</xs:documentation>
+            <xs:documentation>The address of the parcelLocation.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="countryCode" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Two digit country code (ISO 3166-1); character for format string: 1</xs:documentation>
+                    <xs:documentation>Two digit country code (ISO 3166-1)</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -772,7 +772,7 @@
             </xs:element>
             <xs:element name="zipCode" minOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Zip code; Character for format string: 2</xs:documentation>
+                    <xs:documentation>Zip code</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -783,7 +783,7 @@
             </xs:element>
             <xs:element name="city" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>City; character for format string: 3</xs:documentation>
+                    <xs:documentation>City</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -794,7 +794,7 @@
             </xs:element>
             <xs:element name="district" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>District; Character for format string: 4</xs:documentation>
+                    <xs:documentation>District</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -804,7 +804,7 @@
             </xs:element>
             <xs:element name="additionalInfo" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional info to add address detail, e.g. “Inside supermarket xyz” or “Gas station”. This information is shown in the frontend on dhl.com; Character for format string: 5</xs:documentation>
+                    <xs:documentation>Additional info to add address detail, e.g. “Inside supermarket xyz” or “Gas station”. This information is shown in the frontend on dhl.com</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -814,7 +814,7 @@
             </xs:element>
             <xs:element name="area" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Area; Character for format string: 6</xs:documentation>
+                    <xs:documentation>Area</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -824,7 +824,7 @@
             </xs:element>
             <xs:element name="street" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Street; Character for format string: 7</xs:documentation>
+                    <xs:documentation>Street</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -834,7 +834,7 @@
             </xs:element>
             <xs:element name="houseNo" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>House number; Character for format string: 8</xs:documentation>
+                    <xs:documentation>House number</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -844,7 +844,7 @@
             </xs:element>
             <xs:element name="additionalStreet" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional street; Character for format string: 9</xs:documentation>
+                    <xs:documentation>Additional street</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -855,6 +855,7 @@
             <xs:element name="format1" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
+                        DEPRECATED, will be removed in a future version.
                         Set the format for displaying an address.
                         The number of the address element separated with s (whitespace) or n (newline), e.g.:
                         - a DE Parcel Shop has format1: csbnan7s8n2s3 and format2: csbn2s3n1.
@@ -871,6 +872,7 @@
             <xs:element name="format2" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>
+                        DEPRECATED, will be removed in a future version.
                         Set the format for displaying an address in shortened form.
                         The character of the address element separated with s (whitespace) or n (newline), e.g. 4n7s8n2s3 for a german address.
                         The format is used for label printing.
@@ -894,7 +896,7 @@
             </xs:element>
             <xs:element name="keyWord" minOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>long form of the shopType; e.g.: DHL Paketshop. Character for format string: c</xs:documentation>
+                    <xs:documentation>long form of the shopType; e.g.: DHL Paketshop.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -921,14 +923,17 @@
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="address" type="address" minOccurs="1" maxOccurs="1" />
-                                        <xs:element name="partnerType" type="partnerType" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="partnerType" type="partnerType" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
                                         <xs:element name="shopType" type="shopType" minOccurs="1" maxOccurs="1" />
                                         <xs:element name="shopName" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
                                                 <xs:documentation>
                                                     The name of the shop, that is displayed on the DHL Finder Frontend; examples: Toto Lotto, Lidl, John´s barbershop.
                                                     In the web interface the name will be shortened to 20 characters.
-                                                    Character for format string: a
                                                 </xs:documentation>
                                             </xs:annotation>
                                             <xs:simpleType>
@@ -941,11 +946,14 @@
                                         <xs:element name="geoPosition" type="geoPosition" minOccurs="1" maxOccurs="1" />
                                         <xs:element name="identifyingKeys" type="IDS" minOccurs="1" maxOccurs="1" />
                                         <xs:element name="welcomeTexts" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
+                                            </xs:annotation>
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element name="welcomeText" type="welcomeTextType" minOccurs="0" maxOccurs="20">
                                                         <xs:annotation>
-                                                            <xs:documentation>No more relevance for frontend.</xs:documentation>
+                                                            <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
                                                         </xs:annotation>
                                                     </xs:element>
                                                 </xs:sequence>
@@ -1009,6 +1017,9 @@
                                             </xs:complexType>
                                         </xs:element>
                                         <xs:element name="files" minOccurs="0" maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
+                                            </xs:annotation>
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element name="file" type="complexTypeFiles" minOccurs="0" maxOccurs="40" />
