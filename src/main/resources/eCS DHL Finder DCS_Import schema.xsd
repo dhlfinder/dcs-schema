@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
     <xs:simpleType name="language">
         <xs:annotation>
-            <xs:documentation>The supported languages of the DHL Finder. Occurrence: parcelLocation/welcomeTexts/welcomeText/language, parcelLocation/primaryLanguage, parcelLocation/secondaryLanguage, parcelLocation/tertiaryLanguage</xs:documentation>
+            <xs:documentation>The supported languages of the DHL Finder.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="2" />
@@ -135,7 +135,7 @@
     </xs:simpleType>
     <xs:simpleType name="shopType">
         <xs:annotation>
-            <xs:documentation>The type of the parcelLocation (e.g. DHL Parcel Shop, Packstation, Postoffice). Occurrence: parcelLocation/shopType</xs:documentation>
+            <xs:documentation>The type of the parcelLocation (e.g. DHL Parcel Shop, Packstation, Postoffice).</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="16" />
@@ -193,7 +193,7 @@
     </xs:simpleType>
     <xs:simpleType name="partnerType">
         <xs:annotation>
-            <xs:documentation>The type of the partner (e.g. intern, external). Occurrence: parcelLocation/partnerType</xs:documentation>
+            <xs:documentation>The type of the partner (e.g. intern, external).</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="16" />
@@ -229,7 +229,7 @@
     </xs:simpleType>
     <xs:simpleType name="schemaVersion">
         <xs:annotation>
-            <xs:documentation>The Version of the schema. Occurrence: only here</xs:documentation>
+            <xs:documentation>The Version of the schema.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:pattern value="1.9" />
@@ -237,7 +237,7 @@
     </xs:simpleType>
     <xs:simpleType name="validSchemaVersions">
         <xs:annotation>
-            <xs:documentation>The pattern for valid schemaVersions. Occurrence: header/schemaVersion</xs:documentation>
+            <xs:documentation>The pattern for valid schemaVersions.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:pattern value="[0-9]{1,2}\.[0-9]{1,2}" />
@@ -245,18 +245,28 @@
     </xs:simpleType>
     <xs:simpleType name="service">
         <xs:annotation>
-            <xs:documentation>Available services in the parcelLocations. Occurrence: parcelLocation/services</xs:documentation>
+            <xs:documentation>Available services in the parcelLocations.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="40" />
+            <xs:enumeration value="acceptUnlabelledParcel">
+                <xs:annotation>
+                    <xs:documentation>The location accepts unlabelled parcels. Printing of required label for clients is supported.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="ageVerification">
                 <xs:annotation>
                     <xs:documentation>The location offers an age verification which may be required for certain products.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="bulky">
+                <xs:annotation>
+                    <xs:documentation>Not implemented yet</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="cashService">
                 <xs:annotation>
-                    <xs:documentation>The location offers cash service, based on local service portfolio.</xs:documentation>
+                    <xs:documentation>The location offers cash service, based on local service portfolio (e.g. Debit Card, Credit Card and Cash Payment).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="COD">
@@ -264,9 +274,9 @@
                     <xs:documentation>The location offers COD (Cash on Delivery) service incl. parcel hand out to customers and collection of COD payment.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="NPS">
+            <xs:enumeration value="directDeliveryByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>Has been decommissioned. Replaced by "franking". Please change service name to "franking" in import, if used. - DEPRECATED, will be removed in a future version</xs:documentation>
+                    <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint eCS (parcel) and Express shops.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="EPS">
@@ -274,19 +284,19 @@
                     <xs:documentation>The location sells Express (EXP) parcels. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="directDeliveryByDHLExpress">
-                <xs:annotation>
-                    <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint eCS (parcel) and Express shops.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="franking">
                 <xs:annotation>
-                    <xs:documentation>The location sells regular DHL Parcel labels (excluding DHL Express).</xs:documentation>
+                    <xs:documentation>Offering of labels for franking. The location sells regular DHL Parcel labels (excluding DHL Express).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="handicappedAccess">
                 <xs:annotation>
-                    <xs:documentation>The location is accessible for handicapped people.</xs:documentation>
+                    <xs:documentation>The location is accessible without barriers and prepared for wheelchair access.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NPS">
+                <xs:annotation>
+                    <xs:documentation>Has been decommissioned. Replaced by "franking". Please change service name to "franking" in import, if used. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="packingMaterial">
@@ -296,12 +306,17 @@
             </xs:enumeration>
             <xs:enumeration value="parcelacceptance">
                 <xs:annotation>
-                    <xs:documentation>The location accepts DHL parcels handed in by a customer.</xs:documentation>
+                    <xs:documentation>The location accepts DHL parcels handed in by a customer. Including return parcels.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="parcelcollection">
+                <xs:annotation>
+                    <xs:documentation>The location can be used for LastMile services (except Direct Addressing), e.g. re-routing or not@home. If a location offers direct addressing as well, both parcelpickup and parcelcollection must be sent. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parcelpickup">
                 <xs:annotation>
-                    <xs:documentation>The location can be used for direct addressing as primary delivery. This service is only to be used for Direct Addressing, no other LastMile Service.</xs:documentation>
+                    <xs:documentation>The location can be used for Direct Addressing to ServicePoints or Lockers as the primary delivery.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parking">
@@ -311,12 +326,7 @@
             </xs:enumeration>
             <xs:enumeration value="pickupByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint eCS (parcel) and Express shops.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="postident">
-                <xs:annotation>
-                    <xs:documentation>The location offers the personal identification service (postident) from Deutsche Post AG. Only available in DE.</xs:documentation>
+                    <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel (DHL eCS) and DHL Express ServicePoints.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="PINService">
@@ -324,67 +334,57 @@
                     <xs:documentation>A PIN is required from the customer in order to pickup a parcel. - DEPRECATED, will be removed in a future version.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="parcelcollection">
+            <xs:enumeration value="postident">
                 <xs:annotation>
-                    <xs:documentation>The location can be used for LastMile services (except direct addressing), e.g. re-routing or not@home. If a location offers direct addressing as well, both &lt;parcelpickup&gt; &amp; &lt;parcelcollection&gt; to be sent.</xs:documentation>
+                    <xs:documentation>The location offers the personal identification service (POSTIDENT) from Deutsche Post AG. Only available in DE.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="rerouting">
                 <xs:annotation>
-                    <xs:documentation>The location can be selected as an alternative drop-off location by a customer who wants to re-route a doorstep parcel.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="bulky">
-                <xs:annotation>
-                    <xs:documentation>Not implemented yet</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="acceptUnlabelledParcel">
-                <xs:annotation>
-                    <xs:documentation>The location accepts unlabelled parcels. Printing of required label for clients is supported.</xs:documentation>
+                    <xs:documentation>The location can be selected as an alternative drop-off location by a customer who wants to re-route a doorstep parcel. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="weekday">
         <xs:annotation>
-            <xs:documentation>A token for the weekday. Occurrence: parcelLocation/timeinfos/timeinfo/weekday</xs:documentation>
+            <xs:documentation>A token for the weekday.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="1" />
             <xs:enumeration value="1">
                 <xs:annotation>
-                    <xs:documentation>monday</xs:documentation>
+                    <xs:documentation>Monday</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="2">
                 <xs:annotation>
-                    <xs:documentation>tuesday</xs:documentation>
+                    <xs:documentation>Tuesday</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="3">
                 <xs:annotation>
-                    <xs:documentation>wednesday</xs:documentation>
+                    <xs:documentation>Wednesday</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="4">
                 <xs:annotation>
-                    <xs:documentation>thursday</xs:documentation>
+                    <xs:documentation>Thursday</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="5">
                 <xs:annotation>
-                    <xs:documentation>friday</xs:documentation>
+                    <xs:documentation>Friday</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="6">
                 <xs:annotation>
-                    <xs:documentation>saturday</xs:documentation>
+                    <xs:documentation>Saturday</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="7">
                 <xs:annotation>
-                    <xs:documentation>sunday</xs:documentation>
+                    <xs:documentation>Sunday</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -399,12 +399,12 @@
     </xs:simpleType>
     <xs:simpleType name="timeInfoType">
         <xs:annotation>
-            <xs:documentation>The type of the specified timeinfo. Occurrence: parcelLocation/timeinfos/timeinfo/type</xs:documentation>
+            <xs:documentation>The type of the specified timeinfo.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="openinghour">
                 <xs:annotation>
-                    <xs:documentation>The opening hours of the parcelLocation.</xs:documentation>
+                    <xs:documentation>The opening hours of the Servicepoint</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="closuretime1">
@@ -431,17 +431,17 @@
     </xs:simpleType>
     <xs:simpleType name="closurePeriodType">
         <xs:annotation>
-            <xs:documentation>The type of a closure period. Occurrence: parcelLocation/closurePeriod/type</xs:documentation>
+            <xs:documentation>The type of a closure period.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:enumeration value="holiday">
                 <xs:annotation>
-                    <xs:documentation>The location is temporarily closed. Requires a value for 'from' and 'to'.</xs:documentation>
+                    <xs:documentation>The Servicepoint is temporarily closed. Requires a value for 'from' and 'to'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="outOfService">
                 <xs:annotation>
-                    <xs:documentation>The location is closed permanently and will not open again. Only requires a value for 'from'.</xs:documentation>
+                    <xs:documentation>The Servicepoint is closed permanently and will not open again. Only requires a value for 'from'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -520,7 +520,7 @@
     </xs:simpleType>
     <xs:complexType name="complexTypeFiles">
         <xs:annotation>
-            <xs:documentation>Files belonging to a parcelLocation. Occurrence: parcelLocation/files</xs:documentation>
+            <xs:documentation>Files belonging to a parcelLocation.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="category" type="categoryType" />
@@ -533,7 +533,7 @@
     </xs:complexType>
     <xs:complexType name="openingHours">
         <xs:annotation>
-            <xs:documentation>Format for the daily opening hours. Multiple datasets for the same day are allowed.</xs:documentation>
+            <xs:documentation>Format for daily opening hours. Multiple data sets are allowed for the same day.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="timefrom" type="timeformat24">
@@ -548,7 +548,7 @@
             </xs:element>
             <xs:element name="weekday" type="weekday">
                 <xs:annotation>
-                    <xs:documentation>The day of the week, e.g.: 1 for monday; see type "weekday"</xs:documentation>
+                    <xs:documentation>The day of the week, e.g.: 1 for Monday; see type "weekday"</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="type" type="timeInfoType">
@@ -560,12 +560,12 @@
     </xs:complexType>
     <xs:complexType name="IDS">
         <xs:annotation>
-            <xs:documentation>Identifiers used in the system. Occurrence: parcelLocation/identifyingKeys</xs:documentation>
+            <xs:documentation>Identifiers used in the system.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="primaryKeyDeliverySystem" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>The unique key in the delivery system</xs:documentation>
+                    <xs:documentation>The unique key in the delivery system. This is a unique key to be defined by the providing country</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -576,7 +576,7 @@
             </xs:element>
             <xs:element name="primaryKeyZipRegion" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Primary key within a zip region.</xs:documentation>
+                    <xs:documentation>Primary key that makes the Servicepoint unique within a zip code region.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -597,7 +597,7 @@
             </xs:element>
             <xs:element name="primaryKeyPSF" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>The unique key of the location generated by the DHL Finder: systemID + "-" + primaryKeyDeliverySystem. You can leave this field blank, the DHL Finder will calculate its content.</xs:documentation>
+                    <xs:documentation>The unique key of the Servicepoint generated by the DHL Finder. You can leave this field blank, the DHL Finder will calculate its content. Content: systemID + "-" + primaryKeyDeliverySystem. </xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -610,7 +610,7 @@
     </xs:complexType>
     <xs:complexType name="welcomeTextType">
         <xs:annotation>
-            <xs:documentation>Text elements in multiple languages. Occurrence: parcelLocation/welcomeTexts/welcomeText; Line breaks must be written as #br#; e.g.: Dear Customer,#br#here you can see ...</xs:documentation>
+            <xs:documentation>Text elements in multiple languages. Line breaks must be written as #br#; e.g.: Dear Customer,#br#here you can see ...</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="language" type="language" maxOccurs="1" />
@@ -626,7 +626,7 @@
     </xs:complexType>
     <xs:complexType name="complexTypeService">
         <xs:annotation>
-            <xs:documentation>The supported services of the parcel shop. Occurrence: parcelLocation/services</xs:documentation>
+            <xs:documentation>The supported services of the Servicepoint.</xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
             <xs:element name="service" type="service" />
@@ -634,22 +634,22 @@
     </xs:complexType>
     <xs:complexType name="otherInfoType">
         <xs:annotation>
-            <xs:documentation>Other infos of the parcelshop. Occurrence: parcelLocation/otherInfos</xs:documentation>
+            <xs:documentation>Other infos of the Servicepoint.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="type" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         The type of the otherInfo entry. Supported values are:
-                         - utilization -> Average utilization value of the whole week (content type: int)
-                         - utilization_mon -> Utilization value on mondays (content type: int)
-                         - utilization_tue -> Utilization value on tuesdays (content type: int)
-                         - utilization_wed -> Utilization value on wednesdays (content type: int)
-                         - utilization_thu -> Utilization value on thursdays (content type: int)
-                         - utilization_fri -> Utilization value on fridays (content type: int)
-                         - utilization_sat -> Utilization value on saturdays (content type: int)
-                         - utilization_sun -> Utilization value on sundays (content type: int)
-                         - lean_locker -> Whether the locker is a lean locker and has to be controlled by the customer with a smartphone (content type: int [0 or 1])
+                         - utilization -> This value indicates how full the service point is with parcels. This is an average value over the week. (content type: int)
+                         - utilization_mon -> This value indicates how full the service point is with parcels on Mondays (content type: int)
+                         - utilization_tue -> This value indicates how full the service point is with parcels on Tuesdays (content type: int)
+                         - utilization_wed -> This value indicates how full the service point is with parcels on Wednesdays (content type: int)
+                         - utilization_thu -> This value indicates how full the service point is with parcels on Thursdays (content type: int)
+                         - utilization_fri -> This value indicates how full the service point is with parcels on Fridays (content type: int)
+                         - utilization_sat -> This value indicates how full the service point is with parcels on Saturdays (content type: int)
+                         - utilization_sun -> This value indicates how full the service point is with parcels on Sundays (content type: int)
+                         - lean_locker -> This value indicates whether the locker is a lean locker and can only be used with a smartphone. (content type: int [0 or 1])
 
                         Utilization values are:
                          - 1 = very low
@@ -684,7 +684,7 @@
     </xs:complexType>
     <xs:complexType name="foreignKeyType">
         <xs:annotation>
-            <xs:documentation>The foreign keys of other systems. Occurrence: parcelLocation/foreignKeys</xs:documentation>
+            <xs:documentation>The foreign keys of other systems.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="scope" maxOccurs="1">
@@ -757,7 +757,7 @@
     </xs:complexType>
     <xs:complexType name="address">
         <xs:annotation>
-            <xs:documentation>The address of the parcelLocation.</xs:documentation>
+            <xs:documentation>The address of the ServicePoint.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="countryCode" minOccurs="1" maxOccurs="1">
@@ -804,7 +804,7 @@
             </xs:element>
             <xs:element name="additionalInfo" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional info to add address detail, e.g. “Inside supermarket xyz” or “Gas station”. This information is shown in the frontend on dhl.com</xs:documentation>
+                    <xs:documentation>Additional info to add address detail, e.g. “Inside supermarket xyz” or “Gas station”.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -896,7 +896,7 @@
             </xs:element>
             <xs:element name="keyWord" minOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>long form of the shopType; e.g.: DHL Paketshop.</xs:documentation>
+                    <xs:documentation>Each partner location has a shopType that is selected during the onboarding process. Every ServicePoint in the XML file must have this shopType.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -932,8 +932,7 @@
                                         <xs:element name="shopName" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
                                                 <xs:documentation>
-                                                    The name of the shop, that is displayed on the DHL Finder Frontend; examples: Toto Lotto, Lidl, John´s barbershop.
-                                                    In the web interface the name will be shortened to 20 characters.
+                                                    The name of the shop; examples: Toto Lotto, Lidl, John´s barbershop.
                                                 </xs:documentation>
                                             </xs:annotation>
                                             <xs:simpleType>
