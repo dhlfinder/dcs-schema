@@ -166,22 +166,6 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="schemaVersion">
-        <xs:annotation>
-            <xs:documentation>The Version of the schema.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:pattern value="1.9" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="validSchemaVersions">
-        <xs:annotation>
-            <xs:documentation>The pattern for valid schemaVersions.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]{1,2}\.[0-9]{1,2}" />
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="service">
         <xs:annotation>
             <xs:documentation>Available services in the parcelLocations.</xs:documentation>
