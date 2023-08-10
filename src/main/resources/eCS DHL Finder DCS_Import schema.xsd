@@ -331,26 +331,6 @@
                     <xs:documentation>The opening hours of the Servicepoint</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="closuretime1">
-                <xs:annotation>
-                    <xs:documentation>Dispatch deadline for letter mail. If letters are dropped off before this deadline, the processing of the letter will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="closuretime2">
-                <xs:annotation>
-                    <xs:documentation>Dispatch deadline for DHL parcels. If parcels are dropped off before this deadline, the processing of the parcel will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="closuretime3">
-                <xs:annotation>
-                    <xs:documentation>Dispatch deadline for DHL Express national. If parcels are dropped off before this deadline, the processing of the parcel will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="closuretime4">
-                <xs:annotation>
-                    <xs:documentation>Dispatch deadline for DHL Express international. If parcels are dropped off before this deadline, the processing of the parcel will start the same day. - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="closurePeriodType">
