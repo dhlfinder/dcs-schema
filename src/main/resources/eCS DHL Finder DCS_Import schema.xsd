@@ -388,13 +388,6 @@
         <xs:annotation>
             <xs:documentation>Files belonging to a parcelLocation.</xs:documentation>
         </xs:annotation>
-        <xs:sequence>
-            <xs:element name="path" type="patternPicture">
-                <xs:annotation>
-                    <xs:documentation>The path for the picture files. Provide a complete url beginning with http(s)://: No physical picture is necessary. The DHL Finder Frontend will load the file from the given url.</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
     </xs:complexType>
     <xs:complexType name="openingHours">
         <xs:annotation>
