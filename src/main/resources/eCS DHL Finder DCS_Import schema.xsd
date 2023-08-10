@@ -409,35 +409,6 @@
             <xs:pattern value="(-[1-2][0-9]|-[0-9]|[0-9]|[1-4][0-9])(\.[0-9]{1,10})?" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="addressFormat">
-        <xs:annotation>
-            <xs:documentation>
-                Set the format for displaying an address.
-                The number of the address element separated with s (whitespace) or n (newline), e.g.:
-                - a DE Parcel Shop has format1: csbnan7s8n2s3 and format2: csbn2s3n1.
-                - a Parcel Europe Parcelshop has format1: csbnan7s8n2s3 and format2: csbn7s8n2s3n1.
-                Possible values are:
-                1 = Two digit country code (ISO 3166-1)
-                2 = Zip code
-                3 = City
-                4 = District
-                5 = Additional Info
-                6 = Area
-                7 = Street
-                8 = House number
-                9 = Additional street
-                a = shopName (e.g. „McDonalds“)
-                b = primaryKeyZipRegion (e.g. „101“)
-                c = keyWord (e.g. “DHL Parcelshop”)
-                d = /
-                s = whitespace
-                n = newline
-            </xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:token">
-            <xs:pattern value="[0-9abcdsn]*" />
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="patternPicture">
         <xs:annotation>
             <xs:documentation>The format for the path for the picture files.</xs:documentation>
@@ -746,38 +717,6 @@
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:maxLength value="40" />
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="format1" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        DEPRECATED, will be removed in a future version.
-                        Set the format for displaying an address.
-                        The number of the address element separated with s (whitespace) or n (newline), e.g.:
-                        - a DE Parcel Shop has format1: csbnan7s8n2s3 and format2: csbn2s3n1.
-                        - a Parcel Europe Parcelshop has format1: csbnan7s8n2s3 and format2: csbn7s8n2s3n1
-                        The format is used for displaying the address.
-                    </xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="addressFormat">
-                        <xs:maxLength value="16" />
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="format2" minOccurs="0">
-                <xs:annotation>
-                    <xs:documentation>
-                        DEPRECATED, will be removed in a future version.
-                        Set the format for displaying an address in shortened form.
-                        The character of the address element separated with s (whitespace) or n (newline), e.g. 4n7s8n2s3 for a german address.
-                        The format is used for label printing.
-                    </xs:documentation>
-                </xs:annotation>
-                <xs:simpleType>
-                    <xs:restriction base="addressFormat">
-                        <xs:maxLength value="16" />
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
