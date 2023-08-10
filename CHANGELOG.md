@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Shoptypes: relaisCollis, kariboo, paketBox, pointOfSale, parcelStation
 - welcomeTexts
+- partnerType
 
 ## [1.1.2] - 2022-12-16
 ### Changed
