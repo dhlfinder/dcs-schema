@@ -166,24 +166,6 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="partnerType">
-        <xs:annotation>
-            <xs:documentation>The type of the partner (e.g. intern, external).</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="16" />
-            <xs:enumeration value="intern">
-                <xs:annotation>
-                    <xs:documentation>internal partner</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="external">
-                <xs:annotation>
-                    <xs:documentation>external partner</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="categoryType">
         <xs:annotation>
             <xs:documentation>Describes the content of the pictures of a parcelLocation</xs:documentation>
@@ -882,11 +864,6 @@
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="address" type="address" minOccurs="1" maxOccurs="1" />
-                                        <xs:element name="partnerType" type="partnerType" minOccurs="0" maxOccurs="1">
-                                            <xs:annotation>
-                                                <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
-                                            </xs:annotation>
-                                        </xs:element>
                                         <xs:element name="shopType" type="shopType" minOccurs="1" maxOccurs="1" />
                                         <xs:element name="shopName" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
