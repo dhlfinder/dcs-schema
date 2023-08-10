@@ -258,11 +258,6 @@
                     <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel (DHL eCS) and DHL Express ServicePoints.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="PINService">
-                <xs:annotation>
-                    <xs:documentation>A PIN is required from the customer in order to pickup a parcel. - DEPRECATED, will be removed in a future version.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="postident">
                 <xs:annotation>
                     <xs:documentation>The location offers the personal identification service (POSTIDENT) from Deutsche Post AG. Only available in DE.</xs:documentation>
