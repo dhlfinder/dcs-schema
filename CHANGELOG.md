@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - welcomeTexts
 - partnerType
 - categoryType
+- schemaVersion, fileDate, fileName
+- Services: EPS, NPS
+- 
 
 ## [1.1.2] - 2022-12-16
 ### Changed

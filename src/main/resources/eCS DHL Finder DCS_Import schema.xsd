@@ -218,11 +218,6 @@
                     <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint eCS (parcel) and Express shops.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="EPS">
-                <xs:annotation>
-                    <xs:documentation>The location sells Express (EXP) parcels. - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="franking">
                 <xs:annotation>
                     <xs:documentation>Offering of labels for franking. The location sells regular DHL Parcel labels (excluding DHL Express).</xs:documentation>
@@ -231,11 +226,6 @@
             <xs:enumeration value="handicappedAccess">
                 <xs:annotation>
                     <xs:documentation>The location is accessible without barriers and prepared for wheelchair access.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="NPS">
-                <xs:annotation>
-                    <xs:documentation>Has been decommissioned. Replaced by "franking". Please change service name to "franking" in import, if used. - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="packingMaterial">
@@ -659,21 +649,6 @@
                         <xs:maxLength value="30" />
                     </xs:restriction>
                 </xs:simpleType>
-            </xs:element>
-            <xs:element name="schemaVersion" type="validSchemaVersions" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>Version number of the underlying schemaFile. Use the number of the simpleType "schemaVersion" here. - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="fileDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>Creation date of the file - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="fileName" type="fileName" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>The name of the xml file. Naming convention: SystemID_Date_psfimport.xml (e.g.: 8001_20220329_psfimport.xml) - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
