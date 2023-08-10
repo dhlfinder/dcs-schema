@@ -144,19 +144,9 @@
                     <xs:documentation>DHL Parcel Shop</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="relaisColis">
-                <xs:annotation>
-                    <xs:documentation>Relais Colis - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="packStation">
                 <xs:annotation>
                     <xs:documentation>Packstation</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="kariboo">
-                <xs:annotation>
-                    <xs:documentation>Kariboo - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="paketShop">
@@ -169,24 +159,9 @@
                     <xs:documentation>Post Office</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="paketBox">
-                <xs:annotation>
-                    <xs:documentation>Paketbox - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="pointOfSale">
-                <xs:annotation>
-                    <xs:documentation>Point of Sale - DEPRECATED, will be removed in a future version</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="postBank">
                 <xs:annotation>
                     <xs:documentation>Postbank</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="parcelStation">
-                <xs:annotation>
-                    <xs:documentation>Parcelstation - DEPRECATED, will be removed in a future version</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -603,22 +578,6 @@
                     <xs:restriction base="xs:token">
                         <xs:minLength value="4" />
                         <xs:maxLength value="35" />
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="welcomeTextType">
-        <xs:annotation>
-            <xs:documentation>Text elements in multiple languages. Line breaks must be written as #br#; e.g.: Dear Customer,#br#here you can see ...</xs:documentation>
-        </xs:annotation>
-        <xs:sequence>
-            <xs:element name="language" type="language" maxOccurs="1" />
-            <xs:element name="content" minOccurs="1" maxOccurs="1">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:maxLength value="160" />
-                        <xs:minLength value="1" />
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
