@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PinService
 - ClosureTime1, +2, +3, +4
 - PatternPicture
-- 
+- WelcomeText
 
 ## [1.1.2] - 2022-12-16
 ### Changed

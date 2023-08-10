@@ -741,20 +741,6 @@
                                         </xs:element>
                                         <xs:element name="geoPosition" type="geoPosition" minOccurs="1" maxOccurs="1" />
                                         <xs:element name="identifyingKeys" type="IDS" minOccurs="1" maxOccurs="1" />
-                                        <xs:element name="welcomeTexts" minOccurs="0" maxOccurs="1">
-                                            <xs:annotation>
-                                                <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="welcomeText" type="welcomeTextType" minOccurs="0" maxOccurs="20">
-                                                        <xs:annotation>
-                                                            <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
-                                                        </xs:annotation>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
                                         <xs:element name="services" type="complexTypeService" minOccurs="0" maxOccurs="1">
                                             <xs:unique name="serviceUnique">
                                                 <xs:selector xpath="service"/>
