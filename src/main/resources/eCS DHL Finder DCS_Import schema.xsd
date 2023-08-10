@@ -384,15 +384,6 @@
             <xs:pattern value="(-[1-2][0-9]|-[0-9]|[0-9]|[1-4][0-9])(\.[0-9]{1,10})?" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="patternPicture">
-        <xs:annotation>
-            <xs:documentation>The format for the path for the picture files.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:token">
-            <xs:maxLength value="180" />
-            <xs:pattern value="https://goo.gl/maps/.*" />
-        </xs:restriction>
-    </xs:simpleType>
     <xs:complexType name="complexTypeFiles">
         <xs:annotation>
             <xs:documentation>Files belonging to a parcelLocation.</xs:documentation>
