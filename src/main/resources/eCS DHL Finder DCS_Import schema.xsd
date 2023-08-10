@@ -638,7 +638,7 @@
             </xs:element>
             <xs:element name="additionalInfo" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional info to add address detail, e.g. “Inside supermarket xyz” or “Gas station”.</xs:documentation>
+                    <xs:documentation>Additional street; Character for format string: 9</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -795,16 +795,6 @@
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element name="foreignKey" type="foreignKeyType" minOccurs="0" maxOccurs="20" />
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="files" minOccurs="0" maxOccurs="1">
-                                            <xs:annotation>
-                                                <xs:documentation>DEPRECATED, will be removed in a future version</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="file" type="complexTypeFiles" minOccurs="0" maxOccurs="40" />
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>

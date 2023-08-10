@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [2.0.0 - Unreleased] - 2023-xx-xx
+### Updated
+- Documentation for additionalInfo field
 ### Removed
 - Shoptypes: relaisCollis, kariboo, paketBox, pointOfSale, parcelStation
 - welcomeTexts
@@ -13,10 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - schemaVersion, fileDate, fileName
 - Services: EPS, NPS
 - addressFormat, format1, format2
-- PinService
-- ClosureTime1, +2, +3, +4
-- PatternPicture
-- WelcomeText
+- pinService
+- closureTime1, +2, +3, +4
+- patternPicture
+- welcomeText
+- files
 
 ## [1.1.2] - 2022-12-16
 ### Changed
