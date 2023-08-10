@@ -166,24 +166,6 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="categoryType">
-        <xs:annotation>
-            <xs:documentation>Describes the content of the pictures of a parcelLocation</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="16" />
-            <xs:enumeration value="shopowner">
-                <xs:annotation>
-                    <xs:documentation>Picture of the shop owner</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="shopview">
-                <xs:annotation>
-                    <xs:documentation>Picture of the view of the shop</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="schemaVersion">
         <xs:annotation>
             <xs:documentation>The Version of the schema.</xs:documentation>
@@ -480,7 +462,6 @@
             <xs:documentation>Files belonging to a parcelLocation.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="category" type="categoryType" />
             <xs:element name="path" type="patternPicture">
                 <xs:annotation>
                     <xs:documentation>The path for the picture files. Provide a complete url beginning with http(s)://: No physical picture is necessary. The DHL Finder Frontend will load the file from the given url.</xs:documentation>
