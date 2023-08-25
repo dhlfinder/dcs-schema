@@ -631,7 +631,7 @@
             </xs:element>
             <xs:element name="additionalInfo" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional street; Character for format string: 9</xs:documentation>
+                    <xs:documentation>Additional info to add address detail, e.g. “Inside supermarket xyz” or “Gas station”.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -671,7 +671,7 @@
             </xs:element>
             <xs:element name="additionalStreet" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional street</xs:documentation>
+                    <xs:documentation>Additional street; Character for format string: 9</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
