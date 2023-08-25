@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0 - Unreleased] - 2023-xx-xx
 ### Updated
-- Documentation for additionalInfo field
+- Documentation for additionalStreet field
 ### Removed
 - Shoptypes: relaisCollis, kariboo, paketBox, pointOfSale, parcelStation
 - welcomeTexts
