@@ -166,22 +166,6 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="schemaVersion">
-        <xs:annotation>
-            <xs:documentation>The Version of the schema.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:pattern value="1.9" />
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="validSchemaVersions">
-        <xs:annotation>
-            <xs:documentation>The pattern for valid schemaVersions.</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]{1,2}\.[0-9]{1,2}" />
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="service">
         <xs:annotation>
             <xs:documentation>Available services in the parcelLocations.</xs:documentation>
@@ -358,16 +342,6 @@
             <xs:pattern value="(([01][0-9]|2[0-3]):[0-5][0-9])|(24:00)" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="fileName">
-        <xs:annotation>
-            <xs:documentation>The format for the filename</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:token">
-            <xs:maxLength value="28" />
-            <xs:minLength value="23" />
-            <xs:pattern value="(\d+)_20[1234][0-9]((0[1-9])|(1[0-2]))((0[1-9])|([1-2][0-9])|(3[0-1]))_psfimport\.xml" />
-        </xs:restriction>
-    </xs:simpleType>
     <xs:simpleType name="latitude">
         <xs:annotation>
             <xs:documentation>Valid values for latitude: 14 to 79.999 (decimal)</xs:documentation>
@@ -384,11 +358,6 @@
             <xs:pattern value="(-[1-2][0-9]|-[0-9]|[0-9]|[1-4][0-9])(\.[0-9]{1,10})?" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="complexTypeFiles">
-        <xs:annotation>
-            <xs:documentation>Files belonging to a parcelLocation.</xs:documentation>
-        </xs:annotation>
-    </xs:complexType>
     <xs:complexType name="openingHours">
         <xs:annotation>
             <xs:documentation>Format for daily opening hours. Multiple data sets are allowed for the same day.</xs:documentation>
@@ -671,7 +640,7 @@
             </xs:element>
             <xs:element name="additionalStreet" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional street; Character for format string: 9</xs:documentation>
+                    <xs:documentation>Additional street</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
