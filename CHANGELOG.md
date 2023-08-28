@@ -4,9 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0-RC1] - 2023-08-28
+## [2.0.0-rc1] - 2023-08-28
 ### Updated
 - Documentation for additionalStreet field
+- Max length for additionalInfo field is now 80
+
 ### Removed
 - Shoptypes: relaisCollis, kariboo, paketBox, pointOfSale, parcelStation
 - welcomeTexts
