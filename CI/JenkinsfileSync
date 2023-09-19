@@ -23,7 +23,7 @@ pipeline {
                         withCredentials([string(
                                           credentialsId   : 'dhlfinder-github-sync-token',
                                           variable: 'GITHUB_TOKEN')]) {
-                            sh "git remote add --mirror=fetch second https://${GITHUB_TOKEN}@github.com/ecs-dhlfinder/dcs-schema.git"
+                            sh "git remote add --mirror=fetch second https://${GITHUB_TOKEN}@github.com/dhlfinder/dcs-schema.git"
 
                         }
                         // update the local copy from the first repository
