@@ -63,8 +63,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: './target/classes/eCS DHL Finder DCS_Import schema.xsd'
-          asset_name: eCS_DHL_Finder_DCS_Import_schema-${{ steps.version.outputs.version }}.xsd
+          asset_path: './target/classes/DHL_Finder_DCS_Import_schema.xsd'
+          asset_name: DHL_Finder_DCS_Import_schema-${{ steps.version.outputs.version }}.xsd
           asset_content_type: application/xml
 
       - name: Upload release asset export schema
@@ -73,6 +73,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: './target/classes/eCS DHL Finder DCS_Export schema.xsd'
-          asset_name: eCS_DHL_Finder_DCS_Export_schema-${{ steps.version.outputs.version }}.xsd
+          asset_path: './target/classes/DHL_Finder_DCS_Export_schema.xsd'
+          asset_name: DHL_Finder_DCS_Export_schema-${{ steps.version.outputs.version }}.xsd
           asset_content_type: application/xml

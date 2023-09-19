@@ -199,7 +199,7 @@
             </xs:enumeration>
             <xs:enumeration value="directDeliveryByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint eCS (parcel) and Express shops.</xs:documentation>
+                    <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint DeC (parcel) and Express shops.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="franking">
@@ -222,6 +222,11 @@
                     <xs:documentation>The location accepts DHL parcels handed in by a customer. Including return parcels.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="parcelcollection">
+                <xs:annotation>
+                    <xs:documentation>The location can be used for LastMile services (except Direct Addressing), e.g. re-routing or not@home. If a location offers direct addressing as well, both parcelpickup and parcelcollection must be sent. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
             <xs:enumeration value="parcelpickup">
                 <xs:annotation>
                     <xs:documentation>The location can be used for Direct Addressing to ServicePoints or Lockers as the primary delivery.</xs:documentation>
@@ -234,17 +239,12 @@
             </xs:enumeration>
             <xs:enumeration value="pickupByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel (DHL eCS) and DHL Express ServicePoints.</xs:documentation>
+                    <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel (DHL eCommerce) and DHL Express ServicePoints.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="postident">
                 <xs:annotation>
-                    <xs:documentation>The location offers the personal identification service (postident) from Deutsche Post AG. Only available in DE.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="parcelcollection">
-                <xs:annotation>
-                    <xs:documentation>The location can be used for LastMile services (except Direct Addressing), e.g. re-routing or not@home. If a location offers direct addressing as well, both parcelpickup and parcelcollection must be sent. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
+                    <xs:documentation>The location offers the personal identification service (POSTIDENT) from Deutsche Post AG. Only available in DE.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="rerouting">
@@ -330,11 +330,6 @@
             <xs:enumeration value="outOfService">
                 <xs:annotation>
                     <xs:documentation>The Servicepoint is closed permanently and will not open again. Only requires a value for 'from'.</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="closure">
-                <xs:annotation>
-                    <xs:documentation>(DEPRECATED) The location is temporarily closed. Requires a value for 'from' and 'to'. Use type 'holiday' instead.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -468,9 +463,9 @@
                          - lean_locker -> This value indicates whether the locker is a lean locker and can only be used with a smartphone. (content type: int [0 or 1])
 
                         Utilization values are:
-                        - 1 = very low
-                        - 2 = low
-                        - 3 = high
+                         - 1 = very low
+                         - 2 = low
+                         - 3 = high
 
                         Example:
                         &lt;otherInfo&gt;
@@ -534,7 +529,7 @@
             <xs:documentation>The header of the file</xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element name="systemID" minOccurs="0" maxOccurs="1">
+            <xs:element name="systemID" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
                 </xs:annotation>
@@ -544,7 +539,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="systemDesc" minOccurs="0" maxOccurs="1">
+            <xs:element name="systemDesc" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Description of the delivery system</xs:documentation>
                 </xs:annotation>
@@ -708,7 +703,12 @@
                                         </xs:element>
                                         <xs:element name="geoPosition" type="geoPosition" minOccurs="1" maxOccurs="1" />
                                         <xs:element name="identifyingKeys" type="IDS" minOccurs="1" maxOccurs="1" />
-                                        <xs:element name="services" type="complexTypeService" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="services" type="complexTypeService" minOccurs="0" maxOccurs="1">
+                                            <xs:unique name="serviceUnique">
+                                                <xs:selector xpath="service"/>
+                                                <xs:field xpath="."/>
+                                            </xs:unique>
+                                        </xs:element>
                                         <xs:element name="timeinfos" minOccurs="0" maxOccurs="1">
                                             <xs:complexType>
                                                 <xs:sequence>
