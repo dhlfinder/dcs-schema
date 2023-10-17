@@ -135,7 +135,7 @@
     </xs:simpleType>
     <xs:simpleType name="shopType">
         <xs:annotation>
-            <xs:documentation>The type of the parcelLocation (e.g. DHL Parcel Shop, Packstation, Postoffice).</xs:documentation>
+            <xs:documentation>The type of the ServicePoint (e.g. DHL Parcel Shop, Packstation (locker), Postoffice).</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="16" />
@@ -146,7 +146,7 @@
             </xs:enumeration>
             <xs:enumeration value="packStation">
                 <xs:annotation>
-                    <xs:documentation>Packstation</xs:documentation>
+                    <xs:documentation>Locker / Packstation</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="paketShop">
@@ -168,88 +168,88 @@
     </xs:simpleType>
     <xs:simpleType name="service">
         <xs:annotation>
-            <xs:documentation>Available services in the parcelLocations.</xs:documentation>
+            <xs:documentation>Available services in the ServicePoint.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
             <xs:maxLength value="40" />
             <xs:enumeration value="acceptUnlabelledParcel">
                 <xs:annotation>
-                    <xs:documentation>The location accepts unlabelled parcels. Printing of required label for clients is supported.</xs:documentation>
+                    <xs:documentation>The ServicePoint accepts unlabelled parcels. Printing of required label for clients is supported.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="ageVerification">
                 <xs:annotation>
-                    <xs:documentation>The location offers an age verification which may be required for certain products.</xs:documentation>
+                    <xs:documentation>The ServicePoint offers an age verification which may be required for certain products.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="bulky">
                 <xs:annotation>
-                    <xs:documentation>Not implemented yet</xs:documentation>
+                    <xs:documentation>Service not implemented yet</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="cashService">
                 <xs:annotation>
-                    <xs:documentation>The location offers cash service, based on local service portfolio (e.g. Debit Card, Credit Card and Cash Payment).</xs:documentation>
+                    <xs:documentation>The ServicePoint offers cash service, based on local service portfolio (e.g. Debit Card, Credit Card and Cash Payment).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="COD">
                 <xs:annotation>
-                    <xs:documentation>The location offers COD (Cash on Delivery) service incl. parcel hand out to customers and collection of COD payment.</xs:documentation>
+                    <xs:documentation>The ServicePoint offers COD (Cash on Delivery) service incl. parcel hand out to customers and collection of COD payment.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="directDeliveryByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint eCS (parcel) and Express shops.</xs:documentation>
+                    <xs:documentation>DHL Express shipments can be directly addressed to this ServicePoint. Only applicable for joint eCommerce (parcel) and Express ServicePoints.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="franking">
                 <xs:annotation>
-                    <xs:documentation>Offering of labels for franking. The location sells regular DHL Parcel labels (excluding DHL Express).</xs:documentation>
+                    <xs:documentation>Offering of labels for franking. The ServicePoint sells regular DHL Parcel labels (excluding DHL Express).</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="handicappedAccess">
                 <xs:annotation>
-                    <xs:documentation>The location is accessible without barriers and prepared for wheelchair access.</xs:documentation>
+                    <xs:documentation>The ServicePoint is accessible without barriers and prepared for wheelchair access.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="packingMaterial">
                 <xs:annotation>
-                    <xs:documentation>The location sells packaging material like boxes, pens etc.</xs:documentation>
+                    <xs:documentation>The ServicePoint sells packaging material like boxes, pens etc.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parcelacceptance">
                 <xs:annotation>
-                    <xs:documentation>The location accepts DHL parcels handed in by a customer. Including return parcels.</xs:documentation>
+                    <xs:documentation>The ServicePoint accepts DHL parcels handed in by a customer. Including return parcels.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parcelpickup">
                 <xs:annotation>
-                    <xs:documentation>The location can be used for Direct Addressing to ServicePoints or Lockers as the primary delivery.</xs:documentation>
+                    <xs:documentation>The ServicePoint can be used for Direct Addressing as the primary delivery.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parking">
                 <xs:annotation>
-                    <xs:documentation>The location has a parking area nearby.</xs:documentation>
+                    <xs:documentation>The ServicePoint has a parking area nearby.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="pickupByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel (DHL eCS) and DHL Express ServicePoints.</xs:documentation>
+                    <xs:documentation>The ServicePoint accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel (DHL eCommerce) and DHL Express ServicePoints.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="postident">
                 <xs:annotation>
-                    <xs:documentation>The location offers the personal identification service (postident) from Deutsche Post AG. Only available in DE.</xs:documentation>
+                    <xs:documentation>The ServicePoint offers the personal identification service (POSTIDENT) from Deutsche Post AG. Only available in DE.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="parcelcollection">
                 <xs:annotation>
-                    <xs:documentation>The location can be used for LastMile services (except Direct Addressing), e.g. re-routing or not@home. If a location offers direct addressing as well, both parcelpickup and parcelcollection must be sent. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
+                    <xs:documentation>The ServicePoint can be used for LastMile services (except Direct Addressing), e.g. re-routing or not@home. If a ServicePoint offers direct addressing as well, both parcelpickup and parcelcollection must be sent. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="rerouting">
                 <xs:annotation>
-                    <xs:documentation>The location can be selected as an alternative drop-off location by a customer who wants to re-route a doorstep parcel. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
+                    <xs:documentation>The ServicePoint can be selected as an alternative drop-off location by a customer who wants to re-route a doorstep parcel. This service can only be accessed by downloading the DHL Finder DCS export file.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -299,7 +299,7 @@
     </xs:simpleType>
     <xs:simpleType name="systemID">
         <xs:annotation>
-            <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
+            <xs:documentation>Each partner has a systemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this systemID.</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:token">
             <xs:pattern value="[a-zA-Z0-9]{1,4}" />
@@ -408,7 +408,7 @@
             </xs:element>
             <xs:element name="primaryKeyZipRegion" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Primary key that makes the Servicepoint unique within a zip code region.</xs:documentation>
+                    <xs:documentation>A key used to make the ServicePoint unique within a zip code region (Uniqueness per zip code cannot be established in all countries for operational reasons).</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -419,7 +419,7 @@
             </xs:element>
             <xs:element name="systemID" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Each partner has a SystemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this SystemID.</xs:documentation>
+                    <xs:documentation>Each partner has a systemID that is assigned by DHL during the onboarding process. Each ServicePoint in the XML file needs to have this systemID.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="systemID">
@@ -429,7 +429,7 @@
             </xs:element>
             <xs:element name="primaryKeyPSF" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>The unique key of the Servicepoint generated by the DHL Finder. You can leave this field blank, the DHL Finder will calculate its content. Content: systemID + "-" + primaryKeyDeliverySystem. </xs:documentation>
+                    <xs:documentation>The unique key of the ServicePoint generated by DHL Finder DCS. This field does not need to be provided by countries as DHL Finder DCS calculates its content itself. Content: systemID + "-" + primaryKeyDeliverySystem.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -442,7 +442,7 @@
     </xs:complexType>
     <xs:complexType name="complexTypeService">
         <xs:annotation>
-            <xs:documentation>The supported services of the Servicepoint.</xs:documentation>
+            <xs:documentation>The supported services of the ServicePoint.</xs:documentation>
         </xs:annotation>
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
             <xs:element name="service" type="service" />
@@ -450,7 +450,7 @@
     </xs:complexType>
     <xs:complexType name="otherInfoType">
         <xs:annotation>
-            <xs:documentation>Other infos of the Servicepoint.</xs:documentation>
+            <xs:documentation>Other infos of the ServicePoint.</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="type" minOccurs="1" maxOccurs="1">
@@ -645,7 +645,7 @@
             </xs:element>
             <xs:element name="additionalStreet" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Additional street</xs:documentation>
+                    <xs:documentation>(Prepared to become DEPRECATED) Additional street</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -665,7 +665,7 @@
             </xs:element>
             <xs:element name="keyWord" minOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Each partner location has a shopType that is selected during the onboarding process. Every ServicePoint in the XML file must have this shopType.</xs:documentation>
+                    <xs:documentation>Each partner ServicePoint type has a keyWord that is selected during the onboarding process. Every ServicePoint in the XML file must have the defined keyWord.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -696,7 +696,7 @@
                                         <xs:element name="shopName" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
                                                 <xs:documentation>
-                                                    The name of the shop; examples: Toto Lotto, Lidl, John´s barbershop.
+                                                    The name of the ServicePoint; examples: Toto Lotto, Lidl, John´s barbershop.
                                                 </xs:documentation>
                                             </xs:annotation>
                                             <xs:simpleType>
@@ -733,17 +733,17 @@
                                         </xs:element>
                                         <xs:element name="primaryLanguage" type="language" minOccurs="1" maxOccurs="1">
                                             <xs:annotation>
-                                                <xs:documentation>The primary spoken language of the shop</xs:documentation>
+                                                <xs:documentation>The primary spoken language of the ServicePoint</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="secondaryLanguage" type="language" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
-                                                <xs:documentation>(Optional) The secondary spoken language of the shop</xs:documentation>
+                                                <xs:documentation>(Optional) The secondary spoken language of the ServicePoint</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="tertiaryLanguage" type="language" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
-                                                <xs:documentation>(Optional) The tertiary spoken language of the shop</xs:documentation>
+                                                <xs:documentation>(Optional) The tertiary spoken language of the ServicePoint</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="otherInfos" minOccurs="0" maxOccurs="1">
