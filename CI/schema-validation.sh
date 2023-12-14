@@ -18,8 +18,8 @@ files_dir="$root_dir/sftp_dump"
 # Function to connect to an sftp server using an SSH configuration file and copy its files to a local directory.
 function copy_files_from_sftp() {
     mkdir -p $files_dir
-    scp -T -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF1*" "./$files_dir" || true
-    scp -T -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF2*" "./$files_dir" || true
+    sftp -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF1*" "./$files_dir" || true
+    sftp -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF2*" "./$files_dir" || true
 }
 
 # Function to copy the desired xsd schema to a local directory
