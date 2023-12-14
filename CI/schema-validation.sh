@@ -17,9 +17,11 @@ files_dir="$root_dir/sftp_dump"
 
 # Function to connect to an sftp server using an SSH configuration file and copy its files to a local directory.
 function copy_files_from_sftp() {
+    echo "Starting download from sftp..."
     mkdir -p $files_dir
     sftp -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF1*" "./$files_dir" || true
     sftp -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF2*" "./$files_dir" || true
+    echo "Finished download from sftp"
 }
 
 # Function to copy the desired xsd schema to a local directory
@@ -39,6 +41,7 @@ function copy_schema_to_local() {
 
 # Function that triggers the validation mechanism of the downloaded files against a schema.
 function validate_schema() {
+  echo "Starting validation..."
   mkdir -p $root_dir/logs
   local current_date_only current_date log_file
 
@@ -58,6 +61,7 @@ function validate_schema() {
       echo >> "$log_file" # Redirect stderr to stdout (file)
     fi
   done
+  echo "Finished validation"
 }
 
 copy_files_from_sftp "$1"
