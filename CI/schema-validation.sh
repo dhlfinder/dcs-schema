@@ -64,6 +64,7 @@ function validate_schema() {
       echo "Finished validating $file"
     fi
   done
+  gzip $log_file
   echo "Finished validation"
 }
 
