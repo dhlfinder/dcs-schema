@@ -1,7 +1,4 @@
 pipeline {
-    agent {
-        label 'openshift-prg'
-    }
 
     stages {
         stage('SCM Checkout') {
