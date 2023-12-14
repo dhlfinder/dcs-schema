@@ -55,10 +55,13 @@ function validate_schema() {
     file_name=$(basename "$file")
     file_name="${file_name%.*}"
     if [[ $file == *psfimport* ]]; then
+      echo "Extracting $file"
       gzip -d "$file"
+      echo "Validating $file"
       echo -n "$current_date | " >> "$log_file" &&
       xmllint --noout --schema "$1" "$parent_dir/$file_name" >> "$log_file" 2>&1
       echo >> "$log_file" # Redirect stderr to stdout (file)
+      echo "Finished validating $file"
     fi
   done
   echo "Finished validation"
