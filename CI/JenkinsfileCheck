@@ -1,0 +1,31 @@
+pipeline {
+    agent {
+        label 'openshift-prg'
+    }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Check') {
+            steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'sftp-countries', keyFileVariable: 'keyFile', usernameVariable: 'user')]) {
+                    sh """echo ${keyFile} > keyfile"""
+                    sh """chmod 0600 keyfile"""
+                    sh """./CI/schema-validation.sh ./keyfile"""
+                    sh """rm keyfile"""
+                }
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'schema_validation/logs/import-validation.log', fingerprint: true
+        }
+    }
+
+
+}

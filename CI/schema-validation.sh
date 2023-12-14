@@ -5,9 +5,6 @@
 # Author: Andres D. Pena
 # Created 2023-11-22
 
-# SSH Configuration to connect to the SFTP-Server
-ssh_config="ssh_config"
-
 # Root directory containing the logs generated from the schema validation
 root_dir="schema_validation"
 
@@ -20,16 +17,17 @@ files_dir="$root_dir/sftp_dump"
 
 # Function to connect to an sftp server using an SSH configuration file and copy its files to a local directory.
 function copy_files_from_sftp() {
-    scp -i "$1" -F "$ssh_config" -P 2222 -r localhost:/* ./"$files_dir"
+    mkdir -p $files_dir
+    scp -i "$1" -P 22 -r peCPSFmaster@edisaf.deutschepost.de:/peCPSF1* ./"$files_dir" || true
 }
 
 # Function to copy the desired xsd schema to a local directory
 function copy_schema_to_local() {
   local schema_path
-  schema_path="$(cd ../src/main/resources || exit)"
+  schema_path="src/main/resources"
 
   if [ -d "$schema_path" ]; then
-    import_schema=$(find "$schema_path" -type f -name "*.xsd")
+    import_schema=$(find "$schema_path" -type f -name "*Import schema.xsd")
     cp "$import_schema" "$root_dir"
   fi
 }
@@ -40,11 +38,12 @@ function copy_schema_to_local() {
 
 # Function that triggers the validation mechanism of the downloaded files against a schema.
 function validate_schema() {
+  mkdir -p $root_dir/logs
   local current_date_only current_date log_file
 
   current_date_only=$(date +%Y%m%d)
   current_date=$(date +"%Y-%m-%d %T")
-  log_file="$root_dir/logs/$current_date_only-import-validation.log"
+  log_file="$root_dir/logs/import-validation.log"
 
   ## Iterate through given directory, unzip files und validate using xmllint
   find "$files_dir" -type f | while read -r file; do
