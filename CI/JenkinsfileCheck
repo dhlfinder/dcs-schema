@@ -13,9 +13,7 @@ pipeline {
         stage('Check') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'sftp-countries', keyFileVariable: 'keyFile', usernameVariable: 'user')]) {
-                    sh """echo ${keyFile} > keyfile"""
-                    sh """chmod 0600 keyfile"""
-                    sh """./CI/schema-validation.sh ./keyfile"""
+                    sh """./CI/schema-validation.sh ${keyFile}"""
                     sh """rm keyfile"""
                 }
             }
