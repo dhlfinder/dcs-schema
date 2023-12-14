@@ -14,7 +14,6 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'sftp-countries', keyFileVariable: 'keyFile', usernameVariable: 'user')]) {
                     sh """./CI/schema-validation.sh ${keyFile}"""
-                    sh """rm keyfile"""
                 }
             }
         }
