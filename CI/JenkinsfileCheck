@@ -21,6 +21,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'schema_validation/logs/import-validation.log.gz', fingerprint: true
+            archiveArtifacts artifacts: 'schema_validation/logs/failing-folders.txt', fingerprint: true
         }
     }
 

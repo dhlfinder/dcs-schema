@@ -48,6 +48,7 @@ function validate_schema() {
   current_date_only=$(date +%Y%m%d)
   current_date=$(date +"%Y-%m-%d %T")
   log_file="$root_dir/logs/import-validation.log"
+  log_file_summary="$root_dir/logs/failing-folders.txt"
 
   ## Iterate through given directory, unzip files und validate using xmllint
   find "$files_dir" -type f | while read -r file; do
@@ -64,6 +65,8 @@ function validate_schema() {
       echo "Finished validating $file"
     fi
   done
+
+  cat $log_file | grep "fails to validate" | sed 's#.*\(peCPSF.*\)/.*#\1#' | uniq > $log_file_summary
   gzip $log_file
   echo "Finished validation"
 }
