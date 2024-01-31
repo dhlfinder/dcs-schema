@@ -701,9 +701,9 @@
                 <xs:element name="data">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="parcelLocation" minOccurs="0" maxOccurs="100000">
+                            <xs:element name="parcelLocation" minOccurs="0" maxOccurs="999999999">
                                 <xs:annotation>
-                                    <xs:documentation>Parcel location, up to 100.000 entries allowed.</xs:documentation>
+                                    <xs:documentation>Parcel location, up to 999,999,999 entries allowed.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                     <xs:sequence>
@@ -784,17 +784,5 @@
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
-		<xs:key name="PKSystemID">
-            <xs:selector xpath="./header/systemID"/>
-            <xs:field xpath="."/>
-        </xs:key>
-        <xs:keyref name="FKLocSystemID" refer="PKSystemID">
-            <xs:selector xpath="./data/parcelLocation/identifyingKeys/systemID"/>
-            <xs:field xpath="."/>
-        </xs:keyref>
-        <xs:unique name="uniquePrimaryKeyDeliverySystem">
-            <xs:selector xpath="./data/parcelLocation/identifyingKeys/primaryKeyDeliverySystem"/>
-            <xs:field xpath="."/>
-        </xs:unique>
     </xs:element>
 </xs:schema>
