@@ -4,7 +4,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.4] - 2024-01-31
+## [2.0.0-rc2] - 2023-10-17
+### Updated
+- Various descriptions in the schema have been updated to better reflect the content
+
+## [2.0.0-rc1] - 2023-08-28
+### Updated
+- Documentation for additionalStreet field
+- Max length for additionalInfo field is now 80
+
+### Removed
+- Shoptypes: relaisCollis, kariboo, paketBox, pointOfSale, parcelStation
+- welcomeTexts
+- partnerType
+- categoryType
+- schemaVersion, fileDate, fileName
+- Services: EPS, NPS
+- addressFormat, format1, format2
+- pinService
+- closureTime1, +2, +3, +4
+- patternPicture
+- welcomeText
+- files
+
+## [1.1.4] - 2024-02-06
 ### Changed
 - Increased max length of additionalInfo to 80 to match the FACTS data
 
