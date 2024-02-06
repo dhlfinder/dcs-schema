@@ -27,6 +27,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - welcomeText
 - files
 
+## [1.1.4] - 2024-02-06
+### Changed
+- Increased max length of additionalInfo to 80 to match the FACTS data
+
+## [1.1.3] - 2024-01-31
+### Changed
+- Removed constraints on systemID and primaryKeyDeliverySystem from export schema
+- Increased allowed number of locations in export schema to 999,999,999
+
+These changes help to make the export file actually validate successfully against the schema.
+
 ## [1.1.2] - 2022-12-16
 ### Changed
 - Updated many field descriptions to be more helpful
