@@ -403,7 +403,7 @@
             </xs:element>
             <xs:element name="primaryKeyZipRegion" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>A key used to make the ServicePoint unique within a zip code region (Uniqueness per zip code cannot be established in all countries for operational reasons).</xs:documentation>
+                    <xs:documentation>A key used to make the ServicePoint unique within a zip code region.</xs:documentation>
                 </xs:annotation>
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
