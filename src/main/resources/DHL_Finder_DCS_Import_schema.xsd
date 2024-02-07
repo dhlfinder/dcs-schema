@@ -199,7 +199,7 @@
             </xs:enumeration>
             <xs:enumeration value="directDeliveryByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint DeC (parcel) and Express shops.</xs:documentation>
+                    <xs:documentation>DHL Express shipments can be directly addressed to this shop. Only applicable for joint DHL Parcel and Express shops.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="franking">
@@ -239,7 +239,7 @@
             </xs:enumeration>
             <xs:enumeration value="pickupByDHLExpress">
                 <xs:annotation>
-                    <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel (DHL eCommerce) and DHL Express ServicePoints.</xs:documentation>
+                    <xs:documentation>The location accepts pre-labelled DHL Express parcels handed in by a customer. Only applicable for joint DHL Parcel and DHL Express ServicePoints.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="postident">
