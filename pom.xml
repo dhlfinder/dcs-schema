@@ -5,7 +5,7 @@
     <groupId>com.dhl.dhlfinder</groupId>
     <artifactId>dcs-schema</artifactId>
     <version>2.0.0-rc2</version>
-    <name>eCS DHL Finder DCS Schema</name>
+    <name>DHL Finder DCS Schema</name>
     <description>Import / export schema used by DCS.</description>
 
     <properties>
