@@ -23,25 +23,24 @@ pipeline {
                     // Retrieve the SSH key from the credential
                     withCredentials([sshUserPrivateKey(credentialsId: sshKeyCredentialId, keyFileVariable: 'SSH_KEY_FILE')]) {
                         sshKey = env.SSH_KEY_FILE
-                    }
-
-
-                    // Clone the repository using the SSH private key
-                    sh "GIT_SSH_COMMAND='ssh -i ${sshKey} -o StrictHostKeyChecking=no' git clone --mirror git@git.dhl.com:eCS-DHL-Finder/dcs-schema.git dcs-schema"
-
-                    // Change directory to 'dcs-schema'
-                    dir("dcs-schema") {
-                        // Add a remote repository with GitHub token
-                        withCredentials([string(credentialsId: 'dhlfinder-github-sync-token', variable: 'GITHUB_TOKEN')]) {
-                            sh "git remote add --mirror=fetch second https://${GITHUB_TOKEN}@github.com/dhlfinder/dcs-schema.git"
+                    
+                        // Clone the repository using the SSH private key
+                        sh "GIT_SSH_COMMAND='ssh -i ${sshKey} -o StrictHostKeyChecking=no' git clone --mirror git@git.dhl.com:eCS-DHL-Finder/dcs-schema.git dcs-schema"
+    
+                        // Change directory to 'dcs-schema'
+                        dir("dcs-schema") {
+                            // Add a remote repository with GitHub token
+                            withCredentials([string(credentialsId: 'dhlfinder-github-sync-token', variable: 'GITHUB_TOKEN')]) {
+                                sh "git remote add --mirror=fetch second https://${GITHUB_TOKEN}@github.com/dhlfinder/dcs-schema.git"
+                            }
+    
+                            // Update the local copy from the first repository
+                            sh "GIT_SSH_COMMAND='ssh -i ${sshKey} -o StrictHostKeyChecking=no' git fetch origin --tags"
+    
+                            // Sync back the second repository
+                            sh "git push second --all"
+                            sh "git push second --tags"
                         }
-
-                        // Update the local copy from the first repository
-                        sh "GIT_SSH_COMMAND='ssh -i ${sshKey} -o StrictHostKeyChecking=no' git fetch origin --tags"
-
-                        // Sync back the second repository
-                        sh "git push second --all"
-                        sh "git push second --tags"
                     }
                 }
             }
