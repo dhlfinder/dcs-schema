@@ -16,22 +16,26 @@ pipeline {
 
         stage('Sync') {
             steps {
-                sshagent (credentials: ['dhl-finder-ci-key']) {
-                    sh 'git clone --mirror ssh://git@git.dhl.com/eCS-DHL-Finder/dcs-schema.git dcs-schema'
+                script {
+                    // Assuming you have an SSH private key stored as a Jenkins credential
+                    def sshKey = credentials('dhl-finder-ci-key')
+
+                    // Clone the repository using the SSH private key
+                    sh "GIT_SSH_COMMAND='ssh -i ${sshKey} -o StrictHostKeyChecking=no' git clone --mirror git@git.dhl.com:eCS-DHL-Finder/dcs-schema.git dcs-schema"
+
+                    // Change directory to 'dcs-schema'
                     dir("dcs-schema") {
-                        //add a remote repository
-                        withCredentials([string(
-                                          credentialsId   : 'dhlfinder-github-sync-token',
-                                          variable: 'GITHUB_TOKEN')]) {
+                        // Add a remote repository with GitHub token
+                        withCredentials([string(credentialsId: 'dhlfinder-github-sync-token', variable: 'GITHUB_TOKEN')]) {
                             sh "git remote add --mirror=fetch second https://${GITHUB_TOKEN}@github.com/dhlfinder/dcs-schema.git"
-
                         }
-                        // update the local copy from the first repository
-                        sh 'git fetch origin --tags'
 
-                        // sync back the second repository
-                        sh 'git push second --all'
-                        sh 'git push second --tags'
+                        // Update the local copy from the first repository
+                        sh "GIT_SSH_COMMAND='ssh -i ${sshKey} -o StrictHostKeyChecking=no' git fetch origin --tags"
+
+                        // Sync back the second repository
+                        sh "git push second --all"
+                        sh "git push second --tags"
                     }
                 }
             }
