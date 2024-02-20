@@ -17,8 +17,14 @@ pipeline {
         stage('Sync') {
             steps {
                 script {
-                    // Assuming you have an SSH private key stored as a Jenkins credential
-                    def sshKey = credentials('dhl-finder-ci-key')
+                    def sshKeyCredentialId = 'dhl-finder-ci-key'
+                    def sshKey = null
+
+                    // Retrieve the SSH key from the credential
+                    withCredentials([sshUserPrivateKey(credentialsId: sshKeyCredentialId, keyFileVariable: 'SSH_KEY_FILE')]) {
+                        sshKey = env.SSH_KEY_FILE
+                    }
+
 
                     // Clone the repository using the SSH private key
                     sh "GIT_SSH_COMMAND='ssh -i ${sshKey} -o StrictHostKeyChecking=no' git clone --mirror git@git.dhl.com:eCS-DHL-Finder/dcs-schema.git dcs-schema"
