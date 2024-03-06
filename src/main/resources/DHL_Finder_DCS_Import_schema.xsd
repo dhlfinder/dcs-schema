@@ -312,7 +312,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="openinghour">
                 <xs:annotation>
-                    <xs:documentation>The opening hours of the Servicepoint</xs:documentation>
+                    <xs:documentation>The opening hours of the ServicePoint</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
