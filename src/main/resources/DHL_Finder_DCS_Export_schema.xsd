@@ -312,7 +312,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="openinghour">
                 <xs:annotation>
-                    <xs:documentation>The opening hours of the Servicepoint</xs:documentation>
+                    <xs:documentation>The opening hours of the ServicePoint</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
@@ -324,12 +324,12 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="holiday">
                 <xs:annotation>
-                    <xs:documentation>The Servicepoint is temporarily closed. Requires a value for 'from' and 'to'.</xs:documentation>
+                    <xs:documentation>The ServicePoint is temporarily closed. Requires a value for 'from' and 'to'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="outOfService">
                 <xs:annotation>
-                    <xs:documentation>The Servicepoint is closed permanently and will not open again. Only requires a value for 'from'.</xs:documentation>
+                    <xs:documentation>The ServicePoint is closed permanently and will not open again. Only requires a value for 'from'.</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
             <xs:enumeration value="closure">
