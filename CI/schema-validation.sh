@@ -21,6 +21,15 @@ function copy_files_from_sftp() {
     mkdir -p $files_dir
     sftp -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF1*" "./$files_dir" || true
     sftp -o "StrictHostKeyChecking no" -i "$1" -P 22 -r "peCPSFmaster@edisaf.deutschepost.de:/peCPSF2*" "./$files_dir" || true
+
+    for prefix_dir in "$files_dir"/*; do
+      if [[ -d "$prefix_dir" ]]; then
+
+        latest_file=$(find "$prefix_dir" -maxdepth 1 -type f -name '????_????????_psfimport.xml.gz' | sort -r | head -n 1)
+        find "$prefix_dir" -type f -name '????_????????_psfimport.xml.gz' -not -name "$(basename "$latest_file")" -delete
+      fi  
+    done 
+
     echo "Finished download from sftp"
 }
 
