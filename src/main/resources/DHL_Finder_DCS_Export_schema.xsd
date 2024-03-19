@@ -701,7 +701,7 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="header" type="header" />
+                <xs:element name="header" type="header" minOccurs="0" />
                 <xs:element name="data">
                     <xs:complexType>
                         <xs:sequence>
