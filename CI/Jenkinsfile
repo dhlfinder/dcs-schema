@@ -46,7 +46,7 @@ def mvn(args) {
     def server = Artifactory.server('Artifactory prod')
     def rtMaven = Artifactory.newMavenBuild()
     rtMaven.resolver server: server, releaseRepo: 'maven-release', snapshotRepo: 'maven-snapshot'
-    rtMaven.deployer server: server, releaseRepo: 'maven-dhl-release-local', snapshotRepo: 'maven-dhl-snapshot-local'
+    rtMaven.deployer server: server, releaseRepo: 'dhlfinder-proj-prg-maven-local', snapshotRepo: 'dhlfinder-proj-prg-maven-local'
     rtMaven.tool = "${config.mavenPath}".toString()
     rtMaven.deployer.deployArtifacts = true
     withEnv(["JAVA_HOME=${config.javaPath}"]) {
@@ -55,7 +55,7 @@ def mvn(args) {
 }
 
 def getDefaultJdk() {
-    return tool('JDK11')
+    return tool('JDK17')
 }
 
 def static getDefaultMaven() {
