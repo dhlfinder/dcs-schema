@@ -149,19 +149,9 @@
                     <xs:documentation>Locker / Packstation</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="paketShop">
-                <xs:annotation>
-                    <xs:documentation>DHL Paketshop</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
             <xs:enumeration value="postOffice">
                 <xs:annotation>
                     <xs:documentation>Post Office</xs:documentation>
-                </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration value="postBank">
-                <xs:annotation>
-                    <xs:documentation>Postbank</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
         </xs:restriction>
