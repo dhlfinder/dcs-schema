@@ -44,8 +44,10 @@ def mvn(args) {
     def config = [javaPath: getDefaultJdk(), mavenPath: getDefaultMaven()]
     def buildInfo
     def server = Artifactory.server('Artifactory prod')
+    server.credentialsId = 'dhlfinder-artifactory'
+
     def rtMaven = Artifactory.newMavenBuild()
-    rtMaven.resolver server: server, releaseRepo: 'maven-release', snapshotRepo: 'maven-snapshot'
+    rtMaven.resolver server: server, releaseRepo: 'dhlfinder-proj-prg-maven-virtual', snapshotRepo: 'dhlfinder-proj-prg-maven-virtual'
     rtMaven.deployer server: server, releaseRepo: 'dhlfinder-proj-prg-maven-local', snapshotRepo: 'dhlfinder-proj-prg-maven-local'
     rtMaven.tool = "${config.mavenPath}".toString()
     rtMaven.deployer.deployArtifacts = true
