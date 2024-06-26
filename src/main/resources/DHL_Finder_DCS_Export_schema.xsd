@@ -154,6 +154,11 @@
                     <xs:documentation>Post Office</xs:documentation>
                 </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration value="postBank">
+                <xs:annotation>
+                    <xs:documentation>Postbank</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="service">
