@@ -746,7 +746,7 @@
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element name="primaryLanguage" type="language" minOccurs="1" maxOccurs="1">
+                                        <xs:element name="primaryLanguage" type="language" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
                                                 <xs:documentation>DEPRECATED. The primary spoken language of the ServicePoint</xs:documentation>
                                             </xs:annotation>
