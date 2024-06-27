@@ -748,17 +748,17 @@
                                         </xs:element>
                                         <xs:element name="primaryLanguage" type="language" minOccurs="1" maxOccurs="1">
                                             <xs:annotation>
-                                                <xs:documentation>The primary spoken language of the ServicePoint</xs:documentation>
+                                                <xs:documentation>DEPRECATED. The primary spoken language of the ServicePoint</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="secondaryLanguage" type="language" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
-                                                <xs:documentation>(Optional) The secondary spoken language of the ServicePoint</xs:documentation>
+                                                <xs:documentation>DEPRECATED. (Optional) The secondary spoken language of the ServicePoint</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="tertiaryLanguage" type="language" minOccurs="0" maxOccurs="1">
                                             <xs:annotation>
-                                                <xs:documentation>(Optional) The tertiary spoken language of the ServicePoint</xs:documentation>
+                                                <xs:documentation>DEPRECATED. (Optional) The tertiary spoken language of the ServicePoint</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="otherInfos" minOccurs="0" maxOccurs="1">

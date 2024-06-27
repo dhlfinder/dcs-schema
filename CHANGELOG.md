@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Shoptype `paketShop` has been removed.
 
+### Deprecated
+- Fields `primaryLanguage`, `secondaryLanguage` and `tertiaryLanguage` are now deprecated and will be removed in a future release.
+
 ## [2.1.0] - 2024-03-19
 ### Updated
 - Added the following services:
